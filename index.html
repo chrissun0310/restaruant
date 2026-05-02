@@ -1,176 +1,295 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>餐馆营业额系统</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; color: #222; }
-    .container { max-width: 480px; margin: 0 auto; padding: 16px; }
-    h1 { text-align: center; font-size: 24px; margin-bottom: 16px; }
-    .card { background: white; border-radius: 16px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    label { display: block; font-weight: bold; margin-top: 10px; margin-bottom: 6px; }
-    input { width: 100%; box-sizing: border-box; padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-size: 16px; }
-    button { width: 100%; padding: 14px; margin-top: 16px; border: none; border-radius: 12px; background: #111; color: white; font-size: 17px; font-weight: bold; }
-    .danger { background: #c0392b; }
-    .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .box { background: #f0f0f0; border-radius: 12px; padding: 12px; text-align: center; }
-    .box strong { display: block; margin-top: 6px; font-size: 18px; }
-    .record { border-bottom: 1px solid #eee; padding: 10px 0; font-size: 14px; line-height: 1.6; }
-    .profit-plus { color: green; font-weight: bold; }
-    .profit-minus { color: red; font-weight: bold; }
-    .chart { display: flex; align-items: end; gap: 8px; height: 180px; border-left: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px; overflow-x: auto; }
-    .bar-wrap { min-width: 36px; text-align: center; font-size: 11px; }
-    .bar { width: 28px; margin: 0 auto 6px; background: #111; border-radius: 6px 6px 0 0; }
-    .muted { color: #777; font-size: 13px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>餐馆营业额系统</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YO MIEN 有面</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="YO MIEN 有面 App">
+      <section class="screen screen-login" id="loginScreen">
+        <div class="visual-layer">
+          <img src="./youmien-logo.jpg" alt="" class="reference-image" />
+          <div class="shade"></div>
+        </div>
 
-    <div class="card">
-      <label>日期</label>
-      <input type="date" id="date" />
-
-      <label>堂食营业额</label>
-      <input type="number" id="dineIn" placeholder="例如 3000" />
-
-      <label>外卖营业额</label>
-      <input type="number" id="takeaway" placeholder="例如 1200" />
-
-      <label>平台营业额</label>
-      <input type="number" id="platform" placeholder="例如 800" />
-
-      <label>人工成本</label>
-      <input type="number" id="labor" placeholder="例如 1000" />
-
-      <label>租金成本</label>
-      <input type="number" id="rent" placeholder="例如 800" />
-
-      <label>食材成本</label>
-      <input type="number" id="food" placeholder="例如 700" />
-
-      <button onclick="addRecord()">保存当天数据</button>
-    </div>
-
-    <div class="card">
-      <h3>汇总</h3>
-      <div class="summary">
-        <div class="box">总营业额<strong id="totalRevenue">0</strong></div>
-        <div class="box">总成本<strong id="totalCost">0</strong></div>
-        <div class="box">总利润<strong id="totalProfit">0</strong></div>
-        <div class="box">记录天数<strong id="totalDays">0</strong></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>营业额走势</h3>
-      <div id="chart" class="chart"></div>
-      <div class="muted">柱子越高，代表当天营业额越高。</div>
-    </div>
-
-    <div class="card">
-      <h3>每日记录</h3>
-      <div id="recordsList">暂无数据</div>
-      <button class="danger" onclick="clearAll()">清空全部数据</button>
-    </div>
-  </div>
-
-  <script>
-    let records = JSON.parse(localStorage.getItem("restaurantRecordsOffline")) || [];
-    document.getElementById("date").value = new Date().toISOString().split("T")[0];
-
-    function getNumber(id) {
-      return Number(document.getElementById(id).value) || 0;
-    }
-
-    function formatMoney(num) {
-      return Number(num).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    }
-
-    function addRecord() {
-      const date = document.getElementById("date").value;
-      if (!date) { alert("请选择日期"); return; }
-
-      const dineIn = getNumber("dineIn");
-      const takeaway = getNumber("takeaway");
-      const platform = getNumber("platform");
-      const labor = getNumber("labor");
-      const rent = getNumber("rent");
-      const food = getNumber("food");
-
-      const revenue = dineIn + takeaway + platform;
-      const cost = labor + rent + food;
-      const profit = revenue - cost;
-
-      records.push({ id: Date.now(), date, dineIn, takeaway, platform, labor, rent, food, revenue, cost, profit });
-      localStorage.setItem("restaurantRecordsOffline", JSON.stringify(records));
-
-      ["dineIn","takeaway","platform","labor","rent","food"].forEach(id => document.getElementById(id).value = "");
-      render();
-      alert("保存成功");
-    }
-
-    function deleteRecord(id) {
-      records = records.filter(r => r.id !== id);
-      localStorage.setItem("restaurantRecordsOffline", JSON.stringify(records));
-      render();
-    }
-
-    function clearAll() {
-      if (confirm("确定清空全部数据吗？")) {
-        records = [];
-        localStorage.setItem("restaurantRecordsOffline", JSON.stringify(records));
-        render();
-      }
-    }
-
-    function render() {
-      const totalRevenue = records.reduce((s, r) => s + r.revenue, 0);
-      const totalCost = records.reduce((s, r) => s + r.cost, 0);
-      const totalProfit = records.reduce((s, r) => s + r.profit, 0);
-
-      document.getElementById("totalRevenue").textContent = formatMoney(totalRevenue);
-      document.getElementById("totalCost").textContent = formatMoney(totalCost);
-      document.getElementById("totalProfit").textContent = formatMoney(totalProfit);
-      document.getElementById("totalDays").textContent = records.length;
-
-      const list = document.getElementById("recordsList");
-      if (!records.length) {
-        list.innerHTML = "暂无数据";
-      } else {
-        list.innerHTML = records.slice().reverse().map(r => `
-          <div class="record">
-            <strong>${r.date}</strong><br>
-            堂食：${formatMoney(r.dineIn)} | 外卖：${formatMoney(r.takeaway)} | 平台：${formatMoney(r.platform)}<br>
-            人工：${formatMoney(r.labor)} | 租金：${formatMoney(r.rent)} | 食材：${formatMoney(r.food)}<br>
-            营业额：${formatMoney(r.revenue)} | 总成本：${formatMoney(r.cost)}<br>
-            利润：<span class="${r.profit >= 0 ? "profit-plus" : "profit-minus"}">${formatMoney(r.profit)}</span>
-            <button class="danger" onclick="deleteRecord(${r.id})">删除这条</button>
+        <header class="brand">
+          <img class="brand-logo" src="./youmien-logo.jpg" alt="YO MIEN 有面 logo" />
+          <div>
+            <p class="eyebrow">Restaurant Access</p>
+            <h1>YO MIEN</h1>
+            <p class="brand-subtitle">有面</p>
           </div>
-        `).join("");
-      }
+        </header>
 
-      drawChart();
-    }
+        <section class="login-card" aria-labelledby="loginTitle">
+          <p class="welcome">欢迎回来</p>
+          <h2 id="loginTitle">请输入餐馆密码</h2>
 
-    function drawChart() {
-      const chart = document.getElementById("chart");
-      if (!records.length) {
-        chart.innerHTML = "暂无走势数据";
-        return;
-      }
+          <form id="passwordForm">
+            <label class="password-label" for="passwordInput">输入密码</label>
+            <div class="password-control">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M17 10V8a5 5 0 0 0-10 0v2" />
+                <rect x="5" y="10" width="14" height="10" rx="2" />
+              </svg>
+              <input
+                id="passwordInput"
+                type="password"
+                inputmode="numeric"
+                autocomplete="current-password"
+                placeholder="输入 4 位密码"
+              />
+              <button class="icon-button" type="button" id="togglePassword" aria-label="显示密码">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+            <p class="error" id="errorMessage" role="alert"></p>
+            <button class="primary-button" type="submit">进入</button>
+          </form>
+        </section>
 
-      const max = Math.max(...records.map(r => r.revenue), 1);
-      chart.innerHTML = records.slice(-30).map(r => {
-        const height = Math.max(8, Math.round((r.revenue / max) * 150));
-        const day = r.date.slice(5);
-        return `<div class="bar-wrap"><div class="bar" style="height:${height}px"></div><div>${day}</div></div>`;
-      }).join("");
-    }
+        <footer class="login-footer">
+          <span>中文 / EN</span>
+          <span>v1.0</span>
+        </footer>
+      </section>
 
-    render();
-  </script>
-</body>
+      <section class="screen screen-home" id="homeScreen" hidden>
+        <header class="home-header">
+          <button class="round-button" id="backButton" aria-label="返回登录">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <div>
+            <p class="eyebrow">Today at YO MIEN</p>
+            <h2>营业录入</h2>
+          </div>
+          <button class="round-button" aria-label="通知">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+              <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+            </svg>
+          </button>
+        </header>
+
+        <form class="daily-form" id="dailyForm">
+          <label class="field full-field">
+            <span>日期</span>
+            <input id="businessDate" type="date" />
+          </label>
+
+          <label class="field">
+            <span>中午营业额</span>
+            <input class="money-input" id="lunchRevenue" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field">
+            <span>晚上营业额</span>
+            <input class="money-input" id="dinnerRevenue" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field">
+            <span>外卖营业额</span>
+            <input class="money-input" id="deliveryRevenue" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field">
+            <span>现金收入</span>
+            <input class="money-input" id="cashIncome" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field">
+            <span>POS 机收入</span>
+            <input class="money-input" id="posIncome" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field">
+            <span>食材支出</span>
+            <input class="money-input" id="foodExpense" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <section class="summary-panel" aria-label="营业汇总">
+            <div>
+              <p>营业额合计</p>
+              <strong id="totalRevenue">¥0.00</strong>
+            </div>
+            <div>
+              <p>收入合计</p>
+              <strong id="totalIncome">¥0.00</strong>
+            </div>
+            <div>
+              <p>扣食材后</p>
+              <strong id="netAmount">¥0.00</strong>
+            </div>
+          </section>
+
+          <button class="primary-button" type="submit">保存记录</button>
+          <button class="secondary-button form-nav-button" type="button" id="openMonthlyButton">查看月度支出</button>
+          <p class="save-message" id="saveMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="screen screen-monthly" id="monthlyScreen" hidden>
+        <header class="home-header">
+          <button class="round-button" id="backToHomeButton" aria-label="返回营业录入">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <div>
+            <p class="eyebrow">Monthly Report</p>
+            <h2>月度支出</h2>
+          </div>
+          <button class="round-button" aria-label="报表">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 19V5" />
+              <path d="M4 19h16" />
+              <path d="M8 16V9" />
+              <path d="M12 16V7" />
+              <path d="M16 16v-5" />
+            </svg>
+          </button>
+        </header>
+
+        <form class="daily-form monthly-form" id="monthlyForm">
+          <label class="field full-field">
+            <span>月份</span>
+            <input id="reportMonth" type="month" />
+          </label>
+
+          <label class="field full-field">
+            <span>工资总支出</span>
+            <input class="monthly-money-input" id="salaryExpense" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field">
+            <span>税支出</span>
+            <input class="monthly-money-input" id="taxExpense" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field">
+            <span>租金支出</span>
+            <input class="monthly-money-input" id="rentExpense" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <label class="field full-field">
+            <span>耗材食材支出</span>
+            <input class="monthly-money-input" id="materialFoodExpense" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" />
+          </label>
+
+          <section class="monthly-total" aria-label="本月总支出">
+            <p>本月总支出</p>
+            <strong id="monthlyTotalExpense">¥0.00</strong>
+            <span>工资 + 税 + 租金 + 耗材食材</span>
+          </section>
+
+          <button class="primary-button" type="submit">保存月度记录</button>
+          <button class="secondary-button form-nav-button" type="button" id="openReportButton">查看统计报表</button>
+          <p class="save-message" id="monthlySaveMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="screen screen-report" id="reportScreen" hidden>
+        <header class="home-header">
+          <button class="round-button" id="backToMonthlyButton" aria-label="返回月度支出">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <div>
+            <p class="eyebrow">Revenue Charts</p>
+            <h2>统计报表</h2>
+          </div>
+          <button class="round-button" id="toggleChartButton" aria-label="切换周月">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M3 12h18" />
+              <path d="M16 5l5 7-5 7" />
+              <path d="M8 5l-5 7 5 7" />
+            </svg>
+          </button>
+        </header>
+
+        <section class="report-tabs" aria-label="统计周期">
+          <button class="active" type="button" data-chart-mode="week">按周</button>
+          <button type="button" data-chart-mode="month">按月</button>
+        </section>
+
+        <section class="chart-card" aria-label="营业额统计">
+          <div class="chart-title">
+            <div>
+              <p id="chartModeLabel">本周营业额</p>
+              <strong id="chartTotal">¥0.00</strong>
+            </div>
+            <span>营业额统计</span>
+          </div>
+          <div class="chart-legend" aria-label="图表分类">
+            <span><i class="legend-lunch"></i>中午</span>
+            <span><i class="legend-dinner"></i>晚上</span>
+            <span><i class="legend-delivery"></i>外卖</span>
+          </div>
+          <div class="line-chart" id="revenueChart"></div>
+        </section>
+
+        <section class="report-table-card" aria-label="每周比较">
+          <div class="table-title">
+            <h3>每周比较</h3>
+            <span>本周 vs 上周</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>项目</th>
+                <th>本周</th>
+                <th>上周</th>
+                <th>变化</th>
+              </tr>
+            </thead>
+            <tbody id="weeklyCompareBody"></tbody>
+          </table>
+        </section>
+
+        <section class="chart-card split-card" aria-label="收入支出对比">
+          <div>
+            <p>收入</p>
+            <strong id="reportIncome">¥0.00</strong>
+          </div>
+          <div>
+            <p>支出</p>
+            <strong id="reportExpense">¥0.00</strong>
+          </div>
+          <div>
+            <p>结余</p>
+            <strong id="reportBalance">¥0.00</strong>
+          </div>
+        </section>
+
+        <section class="report-table-card" aria-label="收入支出表">
+          <div class="table-title">
+            <h3>收入支出表</h3>
+            <span id="tablePeriodLabel">按周</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>项目</th>
+                <th>收入</th>
+                <th>支出</th>
+              </tr>
+            </thead>
+            <tbody id="reportTableBody"></tbody>
+          </table>
+        </section>
+
+        <button class="primary-button report-export-button" type="button" id="exportExcelButton">一键生成 Excel 表格</button>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
