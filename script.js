@@ -12,6 +12,7 @@ const backToHomeButton = document.querySelector("#backToHomeButton");
 const backToMonthlyButton = document.querySelector("#backToMonthlyButton");
 const openMonthlyButton = document.querySelector("#openMonthlyButton");
 const openReportButton = document.querySelector("#openReportButton");
+const reportShortcutButtons = document.querySelectorAll(".report-shortcut");
 const fillDemoButton = document.querySelector("#fillDemoButton");
 const exportBackupButton = document.querySelector("#exportBackupButton");
 const importBackupButton = document.querySelector("#importBackupButton");
@@ -133,6 +134,15 @@ openReportButton.addEventListener("click", () => {
   monthlyScreen.hidden = true;
   reportScreen.hidden = false;
   renderReport();
+});
+
+reportShortcutButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    homeScreen.hidden = true;
+    monthlyScreen.hidden = true;
+    reportScreen.hidden = false;
+    renderReport();
+  });
 });
 
 backToMonthlyButton.addEventListener("click", () => {
