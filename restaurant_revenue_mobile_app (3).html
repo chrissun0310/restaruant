@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>餐馆营业额系统</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; color: #222; }
+    .container { max-width: 480px; margin: 0 auto; padding: 16px; }
+    h1 { text-align: center; font-size: 24px; margin-bottom: 16px; }
+    .card { background: white; border-radius: 16px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    label { display: block; font-weight: bold; margin-top: 10px; margin-bottom: 6px; }
+    input { width: 100%; box-sizing: border-box; padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-size: 16px; }
+    button { width: 100%; padding: 14px; margin-top: 16px; border: none; border-radius: 12px; background: #111; color: white; font-size: 17px; font-weight: bold; }
+    .danger { background: #c0392b; }
+    .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .box { background: #f0f0f0; border-radius: 12px; padding: 12px; text-align: center; }
+    .box strong { display: block; margin-top: 6px; font-size: 18px; }
+    .record { border-bottom: 1px solid #eee; padding: 10px 0; font-size: 14px; line-height: 1.6; }
+    .profit-plus { color: green; font-weight: bold; }
+    .profit-minus { color: red; font-weight: bold; }
+    .chart { display: flex; align-items: end; gap: 8px; height: 180px; border-left: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px; overflow-x: auto; }
+    .bar-wrap { min-width: 36px; text-align: center; font-size: 11px; }
+    .bar { width: 28px; margin: 0 auto 6px; background: #111; border-radius: 6px 6px 0 0; }
+    .muted { color: #777; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>餐馆营业额系统</h1>
+
+    <div class="card">
+      <label>日期</label>
+      <input type="date" id="date" />
+
+      <label>堂食营业额</label>
+      <input type="number" id="dineIn" placeholder="例如 3000" />
+
+      <label>外卖营业额</label>
+      <input type="number" id="takeaway" placeholder="例如 1200" />
+
+      <label>平台营业额</label>
+      <input type="number" id="platform" placeholder="例如 800" />
+
+      <label>人工成本</label>
+      <input type="number" id="labor" placeholder="例如 1000" />
+
+      <label>租金成本</label>
+      <input type="number" id="rent" placeholder="例如 800" />
+
+      <label>食材成本</label>
+      <input type="number" id="food" placeholder="例如 700" />
+
+      <button onclick="addRecord()">保存当天数据</button>
+    </div>
+
+    <div class="card">
+      <h3>汇总</h3>
+      <div class="summary">
+        <div class="box">总营业额<strong id="totalRevenue">0</strong></div>
+        <div class="box">总成本<strong id="totalCost">0</strong></div>
+        <div class="box">总利润<strong id="totalProfit">0</strong></div>
+        <div class="box">记录天数<strong id="totalDays">0</strong></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>营业额走势</h3>
+      <div id="chart" class="chart"></div>
+      <div class="muted">柱子越高，代表当天营业额越高。</div>
+    </div>
+
+    <div class="card">
+      <h3>每日记录</h3>
+      <div id="recordsList">暂无数据</div>
+      <button class="danger" onclick="clearAll()">清空全部数据</button>
+    </div>
+  </div>
+
+  <script>
+    let records = JSON.parse(localStorage.getItem("restaurantRecordsOffline")) || [];
+    document.getElementById("date").value = new Date().toISOString().split("T")[0];
+
+    function getNumber(id) {
+      return Number(document.getElementById(id).value) || 0;
+    }
+
+    function formatMoney(num) {
+      return Number(num).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function addRecord() {
+      const date = document.getElementById("date").value;
+      if (!date) { alert("请选择日期"); return; }
+
+      const dineIn = getNumber("dineIn");
+      const takeaway = getNumber("takeaway");
+      const platform = getNumber("platform");
+      const labor = getNumber("labor");
+      const rent = getNumber("rent");
+      const food = getNumber("food");
+
+      const revenue = dineIn + takeaway + platform;
+      const cost = labor + rent + food;
+      const profit = revenue - cost;
+
+      records.push({ id: Date.now(), date, dineIn, takeaway, platform, labor, rent, food, revenue, cost, profit });
+      localStorage.setItem("restaurantRecordsOffline", JSON.stringify(records));
+
+      ["dineIn","takeaway","platform","labor","rent","food"].forEach(id => document.getElementById(id).value = "");
+      render();
+      alert("保存成功");
+    }
+
+    function deleteRecord(id) {
+      records = records.filter(r => r.id !== id);
+      localStorage.setItem("restaurantRecordsOffline", JSON.stringify(records));
+      render();
+    }
+
+    function clearAll() {
+      if (confirm("确定清空全部数据吗？")) {
+        records = [];
+        localStorage.setItem("restaurantRecordsOffline", JSON.stringify(records));
+        render();
+      }
+    }
+
+    function render() {
+      const totalRevenue = records.reduce((s, r) => s + r.revenue, 0);
+      const totalCost = records.reduce((s, r) => s + r.cost, 0);
+      const totalProfit = records.reduce((s, r) => s + r.profit, 0);
+
+      document.getElementById("totalRevenue").textContent = formatMoney(totalRevenue);
+      document.getElementById("totalCost").textContent = formatMoney(totalCost);
+      document.getElementById("totalProfit").textContent = formatMoney(totalProfit);
+      document.getElementById("totalDays").textContent = records.length;
+
+      const list = document.getElementById("recordsList");
+      if (!records.length) {
+        list.innerHTML = "暂无数据";
+      } else {
+        list.innerHTML = records.slice().reverse().map(r => `
+          <div class="record">
+            <strong>${r.date}</strong><br>
+            堂食：${formatMoney(r.dineIn)} | 外卖：${formatMoney(r.takeaway)} | 平台：${formatMoney(r.platform)}<br>
+            人工：${formatMoney(r.labor)} | 租金：${formatMoney(r.rent)} | 食材：${formatMoney(r.food)}<br>
+            营业额：${formatMoney(r.revenue)} | 总成本：${formatMoney(r.cost)}<br>
+            利润：<span class="${r.profit >= 0 ? "profit-plus" : "profit-minus"}">${formatMoney(r.profit)}</span>
+            <button class="danger" onclick="deleteRecord(${r.id})">删除这条</button>
+          </div>
+        `).join("");
+      }
+
+      drawChart();
+    }
+
+    function drawChart() {
+      const chart = document.getElementById("chart");
+      if (!records.length) {
+        chart.innerHTML = "暂无走势数据";
+        return;
+      }
+
+      const max = Math.max(...records.map(r => r.revenue), 1);
+      chart.innerHTML = records.slice(-30).map(r => {
+        const height = Math.max(8, Math.round((r.revenue / max) * 150));
+        const day = r.date.slice(5);
+        return `<div class="bar-wrap"><div class="bar" style="height:${height}px"></div><div>${day}</div></div>`;
+      }).join("");
+    }
+
+    render();
+  </script>
+</body>
+</html>
