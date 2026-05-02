@@ -12,6 +12,10 @@ const backToHomeButton = document.querySelector("#backToHomeButton");
 const backToMonthlyButton = document.querySelector("#backToMonthlyButton");
 const openMonthlyButton = document.querySelector("#openMonthlyButton");
 const openReportButton = document.querySelector("#openReportButton");
+const fillDemoButton = document.querySelector("#fillDemoButton");
+const exportBackupButton = document.querySelector("#exportBackupButton");
+const importBackupButton = document.querySelector("#importBackupButton");
+const backupFileInput = document.querySelector("#backupFileInput");
 const dailyForm = document.querySelector("#dailyForm");
 const businessDate = document.querySelector("#businessDate");
 const moneyInputs = document.querySelectorAll(".money-input");
@@ -43,49 +47,8 @@ const moneyFormatter = new Intl.NumberFormat("zh-CN", {
   currency: "CNY",
 });
 let chartMode = "week";
-
-const reportData = {
-  week: {
-    label: "本周营业额明细",
-    period: "按周",
-    chart: [
-      { label: "周一", lunch: 980, dinner: 1780, delivery: 440 },
-      { label: "周二", lunch: 1260, dinner: 2200, delivery: 640 },
-      { label: "周三", lunch: 1180, dinner: 2050, delivery: 570 },
-      { label: "周四", lunch: 1580, dinner: 2920, delivery: 700 },
-      { label: "周五", lunch: 1940, dinner: 4050, delivery: 910 },
-      { label: "周六", lunch: 2360, dinner: 5280, delivery: 1160 },
-      { label: "周日", lunch: 2140, dinner: 4400, delivery: 1060 },
-    ],
-    previousWeek: { lunch: 10200, dinner: 20780, delivery: 5420 },
-    rows: [
-      ["营业额", 39600, 0],
-      ["外卖平台", 6800, 0],
-      ["食材", 0, 9200],
-      ["工资", 0, 4800],
-      ["税费", 0, 1200],
-    ],
-  },
-  month: {
-    label: "本月每周营业额",
-    period: "按月",
-    chart: [
-      { label: "第1周", lunch: 8200, dinner: 16300, delivery: 4100 },
-      { label: "第2周", lunch: 9500, dinner: 18100, delivery: 4800 },
-      { label: "第3周", lunch: 10100, dinner: 19500, delivery: 5500 },
-      { label: "第4周", lunch: 11440, dinner: 22530, delivery: 5230 },
-    ],
-    previousWeek: { lunch: 10100, dinner: 19500, delivery: 5500 },
-    rows: [
-      ["营业额", 135300, 0],
-      ["外卖平台", 22600, 0],
-      ["食材", 0, 36800],
-      ["工资", 0, 21000],
-      ["税费", 0, 5200],
-      ["租金", 0, 16000],
-    ],
-  },
-};
+const dailyStorageKey = "yoMienDailyRecords";
+const monthlyStorageKey = "yoMienMonthlyRecords";
 
 businessDate.valueAsDate = new Date();
 reportMonth.value = new Date().toISOString().slice(0, 7);
@@ -149,6 +112,162 @@ const escapeHtml = (value) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
+const readStore = (key) => JSON.parse(localStorage.getItem(key) || "{}");
+const writeStore = (key, value) => localStorage.setItem(key, JSON.stringify(value));
+const emptyRevenue = () => ({ lunch: 0, dinner: 0, delivery: 0 });
+const addRevenue = (total, record) => ({
+  lunch: total.lunch + Number(record.lunchRevenue || 0),
+  dinner: total.dinner + Number(record.dinnerRevenue || 0),
+  delivery: total.delivery + Number(record.deliveryRevenue || 0),
+});
+const formatDateKey = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+const parseDateKey = (value) => {
+  const [year, month, day] = value.split("-").map(Number);
+  return new Date(year, month - 1, day);
+};
+const getWeekStart = (date) => {
+  const start = new Date(date);
+  const day = start.getDay() || 7;
+  start.setDate(start.getDate() - day + 1);
+  start.setHours(0, 0, 0, 0);
+  return start;
+};
+const addDays = (date, days) => {
+  const next = new Date(date);
+  next.setDate(next.getDate() + days);
+  return next;
+};
+const getDailyRecord = (date) => readStore(dailyStorageKey)[date];
+const getMonthlyRecord = (month) => readStore(monthlyStorageKey)[month];
+
+const getDailyFormRecord = () => ({
+  date: businessDate.value,
+  lunchRevenue: getMoney("lunchRevenue"),
+  dinnerRevenue: getMoney("dinnerRevenue"),
+  deliveryRevenue: getMoney("deliveryRevenue"),
+  cashIncome: getMoney("cashIncome"),
+  posIncome: getMoney("posIncome"),
+  foodExpense: getMoney("foodExpense"),
+});
+
+const getMonthlyFormRecord = () => ({
+  month: reportMonth.value,
+  salaryExpense: getMoney("salaryExpense"),
+  taxExpense: getMoney("taxExpense"),
+  rentExpense: getMoney("rentExpense"),
+  materialFoodExpense: getMoney("materialFoodExpense"),
+});
+
+const fillInput = (id, value) => {
+  document.querySelector(`#${id}`).value = value || "";
+};
+
+const loadDailyForm = () => {
+  const record = getDailyRecord(businessDate.value);
+  fillInput("lunchRevenue", record?.lunchRevenue);
+  fillInput("dinnerRevenue", record?.dinnerRevenue);
+  fillInput("deliveryRevenue", record?.deliveryRevenue);
+  fillInput("cashIncome", record?.cashIncome);
+  fillInput("posIncome", record?.posIncome);
+  fillInput("foodExpense", record?.foodExpense);
+  saveMessage.textContent = record ? "已载入当天保存记录" : "";
+  updateSummary();
+};
+
+const loadMonthlyForm = () => {
+  const record = getMonthlyRecord(reportMonth.value);
+  fillInput("salaryExpense", record?.salaryExpense);
+  fillInput("taxExpense", record?.taxExpense);
+  fillInput("rentExpense", record?.rentExpense);
+  fillInput("materialFoodExpense", record?.materialFoodExpense);
+  monthlySaveMessage.textContent = record ? "已载入本月保存记录" : "";
+  updateMonthlySummary();
+};
+
+const saveDailyRecord = () => {
+  const records = readStore(dailyStorageKey);
+  const record = getDailyFormRecord();
+  records[record.date] = record;
+  writeStore(dailyStorageKey, records);
+};
+
+const saveMonthlyRecord = () => {
+  const records = readStore(monthlyStorageKey);
+  const record = getMonthlyFormRecord();
+  records[record.month] = record;
+  writeStore(monthlyStorageKey, records);
+};
+
+const fillDemoData = () => {
+  const baseDate = businessDate.value ? parseDateKey(businessDate.value) : new Date();
+  const weekStart = getWeekStart(baseDate);
+  const dailyRecords = readStore(dailyStorageKey);
+  const samples = [
+    [980, 1780, 440, 1600, 1600, 520],
+    [1260, 2200, 640, 2100, 2000, 680],
+    [1180, 2050, 570, 1800, 2000, 610],
+    [1580, 2920, 700, 2500, 2700, 820],
+    [1940, 4050, 910, 3200, 3700, 1100],
+    [2360, 5280, 1160, 4100, 4700, 1380],
+    [2140, 4400, 1060, 3600, 4000, 1260],
+  ];
+
+  samples.forEach(([lunch, dinner, delivery, cash, pos, food], index) => {
+    const date = formatDateKey(addDays(weekStart, index));
+    dailyRecords[date] = {
+      date,
+      lunchRevenue: lunch,
+      dinnerRevenue: dinner,
+      deliveryRevenue: delivery,
+      cashIncome: cash,
+      posIncome: pos,
+      foodExpense: food,
+    };
+  });
+  writeStore(dailyStorageKey, dailyRecords);
+
+  const monthlyRecords = readStore(monthlyStorageKey);
+  monthlyRecords[reportMonth.value] = {
+    month: reportMonth.value,
+    salaryExpense: 21000,
+    taxExpense: 5200,
+    rentExpense: 16000,
+    materialFoodExpense: 8600,
+  };
+  writeStore(monthlyStorageKey, monthlyRecords);
+
+  loadDailyForm();
+  loadMonthlyForm();
+  renderReport();
+  saveMessage.textContent = "已填入本周演示数据，可以查看统计报表";
+};
+
+const getRecordsBetween = (start, end) => {
+  const records = readStore(dailyStorageKey);
+  return Object.values(records).filter((record) => {
+    const date = parseDateKey(record.date);
+    return date >= start && date <= end;
+  });
+};
+
+const summarizeRecords = (records) =>
+  records.reduce(
+    (sum, record) => ({
+      lunch: sum.lunch + Number(record.lunchRevenue || 0),
+      dinner: sum.dinner + Number(record.dinnerRevenue || 0),
+      delivery: sum.delivery + Number(record.deliveryRevenue || 0),
+      cash: sum.cash + Number(record.cashIncome || 0),
+      pos: sum.pos + Number(record.posIncome || 0),
+      food: sum.food + Number(record.foodExpense || 0),
+    }),
+    { lunch: 0, dinner: 0, delivery: 0, cash: 0, pos: 0, food: 0 },
+  );
+
 const updateSummary = () => {
   const revenue =
     getMoney("lunchRevenue") + getMoney("dinnerRevenue") + getMoney("deliveryRevenue");
@@ -167,10 +286,16 @@ moneyInputs.forEach((field) => {
   });
 });
 
+businessDate.addEventListener("change", loadDailyForm);
+
 dailyForm.addEventListener("submit", (event) => {
   event.preventDefault();
   updateSummary();
-  saveMessage.textContent = "已保存今日营业记录";
+  saveDailyRecord();
+  saveMessage.textContent = "已保存今日营业记录，报表已更新";
+  if (!reportScreen.hidden) {
+    renderReport();
+  }
 });
 
 const updateMonthlySummary = () => {
@@ -189,22 +314,128 @@ monthlyMoneyInputs.forEach((field) => {
   });
 });
 
+reportMonth.addEventListener("change", () => {
+  loadMonthlyForm();
+  if (!reportScreen.hidden) {
+    renderReport();
+  }
+});
+
 monthlyForm.addEventListener("submit", (event) => {
   event.preventDefault();
   updateMonthlySummary();
-  monthlySaveMessage.textContent = "已保存本月支出记录";
+  saveMonthlyRecord();
+  monthlySaveMessage.textContent = "已保存本月支出记录，报表已更新";
+  if (!reportScreen.hidden) {
+    renderReport();
+  }
 });
 
+const buildWeekReport = () => {
+  const baseDate = businessDate.value ? parseDateKey(businessDate.value) : new Date();
+  const weekStart = getWeekStart(baseDate);
+  const previousWeekStart = addDays(weekStart, -7);
+  const labels = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+  const chart = labels.map((label, index) => {
+    const dateKey = formatDateKey(addDays(weekStart, index));
+    const record = getDailyRecord(dateKey);
+    return {
+      label,
+      lunch: Number(record?.lunchRevenue || 0),
+      dinner: Number(record?.dinnerRevenue || 0),
+      delivery: Number(record?.deliveryRevenue || 0),
+    };
+  });
+  const previousRecords = getRecordsBetween(previousWeekStart, addDays(previousWeekStart, 6));
+  const previousSum = previousRecords.reduce(addRevenue, emptyRevenue());
+  const weekRecords = getRecordsBetween(weekStart, addDays(weekStart, 6));
+  const sum = summarizeRecords(weekRecords);
+  const revenue = sum.lunch + sum.dinner + sum.delivery;
+  const income = sum.cash + sum.pos;
+
+  return {
+    label: "本周营业额明细",
+    period: "按周",
+    chart,
+    previousWeek: previousSum,
+    rows: [
+      ["营业额", revenue, 0],
+      ["现金收入", sum.cash, 0],
+      ["POS 机收入", sum.pos, 0],
+      ["食材支出", 0, sum.food],
+    ],
+    reportIncome: income,
+    reportExpense: sum.food,
+    empty: weekRecords.length === 0,
+  };
+};
+
+const buildMonthReport = () => {
+  const monthValue = reportMonth.value || new Date().toISOString().slice(0, 7);
+  const [year, month] = monthValue.split("-").map(Number);
+  const firstDay = new Date(year, month - 1, 1);
+  const lastDay = new Date(year, month, 0);
+  const weekStarts = [];
+  let cursor = getWeekStart(firstDay);
+
+  while (cursor <= lastDay) {
+    weekStarts.push(new Date(cursor));
+    cursor = addDays(cursor, 7);
+  }
+
+  const dailyRecords = getRecordsBetween(firstDay, lastDay);
+  const chart = weekStarts.map((start, index) => {
+    const end = addDays(start, 6);
+    const records = getRecordsBetween(start, end);
+    const sum = records.reduce(addRevenue, emptyRevenue());
+    return { label: `第${index + 1}周`, ...sum };
+  });
+  const previousIndex = Math.max(0, chart.length - 2);
+  const previousWeek = chart[previousIndex] || emptyRevenue();
+  const sum = summarizeRecords(dailyRecords);
+  const monthRecord = getMonthlyRecord(monthValue) || {};
+  const revenue = sum.lunch + sum.dinner + sum.delivery;
+  const income = sum.cash + sum.pos;
+  const monthlyExpense =
+    Number(monthRecord.salaryExpense || 0) +
+    Number(monthRecord.taxExpense || 0) +
+    Number(monthRecord.rentExpense || 0) +
+    Number(monthRecord.materialFoodExpense || 0);
+
+  return {
+    label: "本月每周营业额",
+    period: "按月",
+    chart,
+    previousWeek,
+    rows: [
+      ["营业额", revenue, 0],
+      ["现金收入", sum.cash, 0],
+      ["POS 机收入", sum.pos, 0],
+      ["食材支出", 0, sum.food],
+      ["工资总支出", 0, Number(monthRecord.salaryExpense || 0)],
+      ["税支出", 0, Number(monthRecord.taxExpense || 0)],
+      ["租金支出", 0, Number(monthRecord.rentExpense || 0)],
+      ["耗材食材支出", 0, Number(monthRecord.materialFoodExpense || 0)],
+      ["本月总支出", 0, sum.food + monthlyExpense],
+    ],
+    reportIncome: income,
+    reportExpense: sum.food + monthlyExpense,
+    empty: dailyRecords.length === 0,
+  };
+};
+
+const getReportData = () => (chartMode === "week" ? buildWeekReport() : buildMonthReport());
+
 const renderReport = () => {
-  const data = reportData[chartMode];
+  const data = getReportData();
   const getChartTotal = (item) => item.lunch + item.dinner + item.delivery;
   const seriesKeys = ["lunch", "dinner", "delivery"];
   const seriesLabels = { lunch: "中午", dinner: "晚上", delivery: "外卖" };
   const maxValue = Math.max(...data.chart.flatMap((item) => seriesKeys.map((key) => item[key])));
   const minValue = Math.min(...data.chart.flatMap((item) => seriesKeys.map((key) => item[key])));
   const total = data.chart.reduce((sum, item) => sum + getChartTotal(item), 0);
-  const income = data.rows.reduce((sum, item) => sum + item[1], 0);
-  const expense = data.rows.reduce((sum, item) => sum + item[2], 0);
+  const income = data.reportIncome;
+  const expense = data.reportExpense;
   const currentWeek =
     chartMode === "week"
       ? data.chart.reduce(
@@ -316,7 +547,7 @@ const renderReport = () => {
 };
 
 const buildExcelTable = () => {
-  const data = reportData[chartMode];
+  const data = getReportData();
   const dailyRows = [
     ["日期", businessDate.value || ""],
     ["中午营业额", getMoney("lunchRevenue")],
@@ -406,12 +637,70 @@ const exportExcel = () => {
   URL.revokeObjectURL(url);
 };
 
+const downloadBlob = (blob, filename) => {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+};
+
+const exportBackup = () => {
+  const backup = {
+    app: "YO MIEN 有面",
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    dailyRecords: readStore(dailyStorageKey),
+    monthlyRecords: readStore(monthlyStorageKey),
+  };
+  const date = new Date().toISOString().slice(0, 10);
+  const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json;charset=utf-8" });
+  downloadBlob(blob, `YO-MIEN-backup-${date}.json`);
+  saveMessage.textContent = "已导出备份文件";
+};
+
+const refreshAfterImport = () => {
+  loadDailyForm();
+  loadMonthlyForm();
+  renderReport();
+};
+
+const importBackup = async (file) => {
+  if (!file) return;
+
+  try {
+    const text = await file.text();
+    const backup = JSON.parse(text);
+
+    if (!backup.dailyRecords || !backup.monthlyRecords) {
+      throw new Error("Invalid backup file");
+    }
+
+    writeStore(dailyStorageKey, backup.dailyRecords);
+    writeStore(monthlyStorageKey, backup.monthlyRecords);
+    refreshAfterImport();
+    saveMessage.textContent = "已导入备份，数据已恢复";
+  } catch {
+    saveMessage.textContent = "导入失败，请选择正确的备份文件";
+  } finally {
+    backupFileInput.value = "";
+  }
+};
+
 reportTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     chartMode = tab.dataset.chartMode;
     renderReport();
   });
 });
+
+fillDemoButton.addEventListener("click", fillDemoData);
+exportBackupButton.addEventListener("click", exportBackup);
+importBackupButton.addEventListener("click", () => backupFileInput.click());
+backupFileInput.addEventListener("change", () => importBackup(backupFileInput.files[0]));
 
 toggleChartButton.addEventListener("click", () => {
   chartMode = chartMode === "week" ? "month" : "week";
@@ -420,4 +709,6 @@ toggleChartButton.addEventListener("click", () => {
 
 exportExcelButton.addEventListener("click", exportExcel);
 
+loadDailyForm();
+loadMonthlyForm();
 renderReport();
