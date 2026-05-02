@@ -56,6 +56,13 @@ let activeDataMode = "main";
 let dailyStorageKey = "yoMienDailyRecords";
 let monthlyStorageKey = "yoMienMonthlyRecords";
 const demoLoginCountKey = "yoMienDemoLoginCount";
+const mainDataResetKey = "yoMienMainDataReset20260502";
+
+if (!localStorage.getItem(mainDataResetKey)) {
+  localStorage.removeItem("yoMienDailyRecords");
+  localStorage.removeItem("yoMienMonthlyRecords");
+  localStorage.setItem(mainDataResetKey, "true");
+}
 
 const setDataMode = (mode) => {
   activeDataMode = mode;
