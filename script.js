@@ -17,6 +17,7 @@ const exportBackupButton = document.querySelector("#exportBackupButton");
 const importBackupButton = document.querySelector("#importBackupButton");
 const backupFileInput = document.querySelector("#backupFileInput");
 const modeLabel = document.querySelector("#modeLabel");
+const demoLoginCount = document.querySelector("#demoLoginCount");
 const dailyForm = document.querySelector("#dailyForm");
 const businessDate = document.querySelector("#businessDate");
 const moneyInputs = document.querySelectorAll(".money-input");
@@ -54,16 +55,26 @@ let chartMode = "week";
 let activeDataMode = "main";
 let dailyStorageKey = "yoMienDailyRecords";
 let monthlyStorageKey = "yoMienMonthlyRecords";
+const demoLoginCountKey = "yoMienDemoLoginCount";
 
 const setDataMode = (mode) => {
   activeDataMode = mode;
   dailyStorageKey = mode === "demo" ? "yoMienDemoDailyRecords" : "yoMienDailyRecords";
   monthlyStorageKey = mode === "demo" ? "yoMienDemoMonthlyRecords" : "yoMienMonthlyRecords";
   modeLabel.textContent = mode === "demo" ? "演示端" : "正式端";
+  fillDemoButton.hidden = mode !== "demo";
+  demoLoginCount.hidden = mode !== "demo";
+};
+
+const updateDemoLoginCount = () => {
+  const count = Number(localStorage.getItem(demoLoginCountKey) || 0) + 1;
+  localStorage.setItem(demoLoginCountKey, String(count));
+  demoLoginCount.textContent = `演示端登录次数：${count}`;
 };
 
 businessDate.valueAsDate = new Date();
 reportMonth.value = new Date().toISOString().slice(0, 7);
+fillDemoButton.hidden = true;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -71,6 +82,9 @@ form.addEventListener("submit", (event) => {
 
   if (password === passwordMap.main || password === passwordMap.demo) {
     setDataMode(password === passwordMap.demo ? "demo" : "main");
+    if (activeDataMode === "demo") {
+      updateDemoLoginCount();
+    }
     errorMessage.textContent = "";
     loginScreen.hidden = true;
     homeScreen.hidden = false;

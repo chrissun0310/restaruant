@@ -88,6 +88,7 @@ button {
 .login-footer,
 .home-header,
 .mode-pill,
+.demo-login-count,
 .hero-panel,
 .quick-grid,
 .status-panel,
@@ -352,6 +353,12 @@ input::placeholder {
   border: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 12px;
   font-weight: 700;
+}
+
+.demo-login-count {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .daily-form {
