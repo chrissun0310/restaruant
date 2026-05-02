@@ -16,6 +16,7 @@ const fillDemoButton = document.querySelector("#fillDemoButton");
 const exportBackupButton = document.querySelector("#exportBackupButton");
 const importBackupButton = document.querySelector("#importBackupButton");
 const backupFileInput = document.querySelector("#backupFileInput");
+const modeLabel = document.querySelector("#modeLabel");
 const dailyForm = document.querySelector("#dailyForm");
 const businessDate = document.querySelector("#businessDate");
 const moneyInputs = document.querySelectorAll(".money-input");
@@ -41,25 +42,41 @@ const weeklyCompareBody = document.querySelector("#weeklyCompareBody");
 const tablePeriodLabel = document.querySelector("#tablePeriodLabel");
 const exportExcelButton = document.querySelector("#exportExcelButton");
 
-const demoPassword = "0310";
+const passwordMap = {
+  main: "0310",
+  demo: "0000",
+};
 const moneyFormatter = new Intl.NumberFormat("zh-CN", {
   style: "currency",
   currency: "CNY",
 });
 let chartMode = "week";
-const dailyStorageKey = "yoMienDailyRecords";
-const monthlyStorageKey = "yoMienMonthlyRecords";
+let activeDataMode = "main";
+let dailyStorageKey = "yoMienDailyRecords";
+let monthlyStorageKey = "yoMienMonthlyRecords";
+
+const setDataMode = (mode) => {
+  activeDataMode = mode;
+  dailyStorageKey = mode === "demo" ? "yoMienDemoDailyRecords" : "yoMienDailyRecords";
+  monthlyStorageKey = mode === "demo" ? "yoMienDemoMonthlyRecords" : "yoMienMonthlyRecords";
+  modeLabel.textContent = mode === "demo" ? "演示端" : "正式端";
+};
 
 businessDate.valueAsDate = new Date();
 reportMonth.value = new Date().toISOString().slice(0, 7);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  const password = input.value.trim();
 
-  if (input.value.trim() === demoPassword) {
+  if (password === passwordMap.main || password === passwordMap.demo) {
+    setDataMode(password === passwordMap.demo ? "demo" : "main");
     errorMessage.textContent = "";
     loginScreen.hidden = true;
     homeScreen.hidden = false;
+    loadDailyForm();
+    loadMonthlyForm();
+    renderReport();
     return;
   }
 
@@ -652,13 +669,14 @@ const exportBackup = () => {
   const backup = {
     app: "YO MIEN 有面",
     version: 1,
+    mode: activeDataMode,
     exportedAt: new Date().toISOString(),
     dailyRecords: readStore(dailyStorageKey),
     monthlyRecords: readStore(monthlyStorageKey),
   };
   const date = new Date().toISOString().slice(0, 10);
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json;charset=utf-8" });
-  downloadBlob(blob, `YO-MIEN-backup-${date}.json`);
+  downloadBlob(blob, `YO-MIEN-${activeDataMode}-backup-${date}.json`);
   saveMessage.textContent = "已导出备份文件";
 };
 

@@ -87,6 +87,7 @@ button {
 .login-card,
 .login-footer,
 .home-header,
+.mode-pill,
 .hero-panel,
 .quick-grid,
 .status-panel,
@@ -339,6 +340,18 @@ input::placeholder {
   width: 44px;
   aspect-ratio: 1;
   flex: 0 0 auto;
+}
+
+.mode-pill {
+  display: inline-flex;
+  margin: 18px 0 0;
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(241, 10, 10, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .daily-form {
