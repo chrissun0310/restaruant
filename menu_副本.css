@@ -1,0 +1,486 @@
+:root {
+  --red: #f10a0a;
+  --deep-red: #7d1111;
+  --ink: #181412;
+  --muted: #6c625e;
+  --paper: #fffaf4;
+  --line: #eadfd5;
+  --warm: #ffd8b3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f3ece4;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.menu-app {
+  width: min(100%, 520px);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--paper);
+}
+
+.restaurant-home {
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: 28px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 190, 110, 0.28), transparent 26%),
+    radial-gradient(circle at 86% 72%, rgba(241, 10, 10, 0.34), transparent 30%),
+    linear-gradient(145deg, #15100f 0%, #3b1110 52%, #9d1111 100%);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.restaurant-home::before,
+.restaurant-home::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.restaurant-home::before {
+  width: 260px;
+  height: 260px;
+  right: -120px;
+  top: 70px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.restaurant-home::after {
+  width: 180px;
+  height: 180px;
+  left: -90px;
+  bottom: 80px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.home-logo-stage {
+  width: 138px;
+  aspect-ratio: 1;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+  position: relative;
+  z-index: 1;
+}
+
+.restaurant-home img {
+  width: 118px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 4px solid #fff;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.restaurant-home p,
+.restaurant-home h1,
+.restaurant-home strong,
+.restaurant-home span {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.restaurant-home p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.restaurant-home h1 {
+  font-size: 46px;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+.restaurant-home strong {
+  color: #fff;
+  font-size: 24px;
+  letter-spacing: 0;
+}
+
+.restaurant-home span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+}
+
+.home-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-feature-grid div {
+  min-height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.home-feature-grid b {
+  color: #fff;
+  font-size: 13px;
+}
+
+.home-feature-grid small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.language-caption {
+  margin-top: 10px;
+}
+
+.home-language-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-language-grid button {
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+  color: #7e100d;
+  background: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+}
+
+.home-meta {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+}
+
+.menu-content[hidden],
+.restaurant-home[hidden] {
+  display: none;
+}
+
+.menu-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 26px 20px 22px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 92% 20%, rgba(255, 210, 160, 0.16), transparent 24%),
+    linear-gradient(135deg, #1d1715, #651111 58%, var(--red));
+}
+
+.menu-hero img,
+.qr-logo {
+  width: 72px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 3px solid #fff;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.menu-hero p,
+.menu-hero h1 {
+  margin: 0;
+}
+
+.menu-hero p,
+.menu-hero span,
+.dish-card p,
+.menu-footer,
+.qr-page p {
+  color: var(--muted);
+}
+
+.menu-hero p,
+.menu-hero span {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+}
+
+.menu-hero h1 {
+  margin: 4px 0;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.language-toggle {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px 12px 0;
+  background: var(--paper);
+}
+
+.language-toggle button {
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--red);
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.language-toggle button.active {
+  color: #fff;
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.service-switch {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px;
+  background: rgba(255, 250, 244, 0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.service-switch a {
+  padding: 10px 8px;
+  border-radius: 8px;
+  color: var(--red);
+  background: #fff;
+  border: 1px solid var(--line);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.notice {
+  margin: 16px 18px 0;
+  padding: 14px;
+  border: 1px solid #f1c2b8;
+  border-radius: 8px;
+  background: #fff1ee;
+}
+
+.notice strong,
+.notice p {
+  margin: 0;
+}
+
+.notice p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.service-block {
+  padding-top: 18px;
+}
+
+.dinner-block {
+  margin-top: 18px;
+  background: #fff6ef;
+}
+
+.service-title {
+  padding: 20px 18px 8px;
+}
+
+.service-title p,
+.service-title h2 {
+  margin: 0;
+}
+
+.service-title p {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.service-title h2 {
+  margin-top: 4px;
+  font-size: 28px;
+}
+
+.service-title span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.menu-section {
+  padding: 14px 18px 4px;
+}
+
+.menu-section h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.highlight-section {
+  padding-bottom: 14px;
+}
+
+.difference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.difference-grid span {
+  padding: 10px;
+  border-radius: 8px;
+  color: #7e160f;
+  background: #fff;
+  border: 1px solid #f0d7d0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dish-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.dish-card h4,
+.dish-card p {
+  margin: 0;
+}
+
+.dish-card h4 {
+  font-size: 17px;
+}
+
+.dish-card p {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.dish-card strong {
+  color: var(--red);
+  font-size: 18px;
+}
+
+.menu-footer {
+  padding: 24px 18px 32px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.contact-card {
+  margin-bottom: 18px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+
+.contact-card h2,
+.contact-card h3,
+.contact-card p {
+  margin: 0;
+}
+
+.contact-card h2,
+.contact-card h3 {
+  color: var(--red);
+  font-size: 20px;
+}
+
+.contact-card p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.contact-card a {
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.qr-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 16px;
+  padding: 28px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.qr-page h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.qr-subtitle {
+  margin: -8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.qr-image {
+  width: min(78vw, 320px);
+  aspect-ratio: 1;
+  padding: 14px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 40px rgba(60, 40, 30, 0.14);
+}
+
+.qr-contact {
+  width: min(100%, 360px);
+  margin: 0;
+  text-align: center;
+}
+
+.qr-page p {
+  margin: 0;
+  font-size: 13px;
+}
