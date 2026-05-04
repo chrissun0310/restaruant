@@ -4,49 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>YO MIEN Restaurant</title>
-    <link rel="stylesheet" href="./menu.css?v=20260504-qr-refresh" />
+    <link rel="stylesheet" href="./menu.css?v=20260504-ig-home" />
   </head>
   <body>
     <main class="menu-app">
       <section class="restaurant-home" id="restaurantHome">
-        <div class="home-bg" aria-hidden="true">
-          <img src="./assets/yomien-interior-1.jpg" alt="" />
-          <img src="./assets/yomien-noodle.jpg" alt="" />
-          <img src="./assets/yomien-interior-2.jpg" alt="" />
-        </div>
-        <nav class="home-link-row" aria-label="YO MIEN Links">
-          <a href="https://www.facebook.com/yomien.vienna" aria-label="Facebook">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" /><path class="icon-fill" d="M13.6 8.6h2V5.7h-2.5c-2.9 0-4.4 1.7-4.4 4.3v1.6H6.7v3h2v5.1h3.3v-5.1h2.5l.5-3h-3V10c0-.9.5-1.4 1.6-1.4Z" /></svg>
-          </a>
-          <a href="https://www.instagram.com/yomien_vienna/" aria-label="Instagram">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" /><circle cx="12" cy="12" r="3.4" /><circle class="icon-fill" cx="17.2" cy="6.8" r="1.2" /></svg>
-          </a>
-          <a href="https://www.tripadvisor.com/Restaurant_Review-g190454-d17912325-Reviews-YO_MIEN-Vienna.html" aria-label="Tripadvisor">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 9c2-2 5-3 9-3s7 1 9 3" /><circle cx="8" cy="13" r="4" /><circle cx="16" cy="13" r="4" /><circle class="icon-fill" cx="8" cy="13" r="1.35" /><circle class="icon-fill" cx="16" cy="13" r="1.35" /><path d="m10.8 16.2 1.2 1.5 1.2-1.5" /></svg>
-          </a>
-          <a href="tel:+4319054226" aria-label="Call YO MIEN">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 3.2c.7-.2 1.5.1 1.9.8l1.7 3c.4.7.3 1.5-.3 2.1l-1.2 1.2c1.1 2.2 2.9 4 5.1 5.1l1.2-1.2c.6-.6 1.4-.7 2.1-.3l3 1.7c.7.4 1 1.2.8 1.9l-.7 2.5c-.3 1-1.2 1.6-2.2 1.5C10.1 20.7 3.3 13.9 2.5 6.1c-.1-1 .5-1.9 1.5-2.2l2.5-.7Z" /></svg>
-          </a>
-          <a href="https://www.google.com/maps/search/?api=1&query=YO%20MIEN%20Dresdner%20Stra%C3%9Fe%2068%201200%20Wien" aria-label="Google Maps">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3.5 5.5 5-2 7 3 5-2v14l-5 2-7-3-5 2v-14Z" /><path d="M8.5 3.5v14M15.5 6.5v14" /><circle class="icon-fill" cx="16.6" cy="8.1" r="2" /></svg>
-          </a>
-          <a class="home-address-link" href="https://www.google.com/maps/search/?api=1&query=YO%20MIEN%20Dresdner%20Stra%C3%9Fe%2068%201200%20Wien">Dresdnerstr 68, 1200 Wien</a>
-        </nav>
-        <div class="home-logo-stage" aria-label="YO MIEN Logo">
-          <div class="logo-mark" aria-hidden="true">
-            <span class="logo-main">YO</span>
-            <span class="logo-chinese">有<br />面</span>
-            <span class="logo-sub">MIEN</span>
-          </div>
+        <div class="home-logo-stage">
+          <img src="./youmien-logo.jpg" alt="YO MIEN Logo" />
         </div>
         <p>Restaurant · Wien</p>
         <h1>YO MIEN</h1>
         <strong>有面</strong>
         <span>La Mien · Rice Bowls · Dim Sum · Asian Fusion</span>
-        <div class="home-hours-card">
-          <b>Heute</b>
-          <span>Mo - Fr 11:00 - 22:00 · Sa 12:00 - 22:00</span>
-        </div>
         <div class="home-feature-grid" aria-label="餐厅特色">
           <div>
             <b>La Mien</b>
@@ -61,17 +30,18 @@
             <small>午餐饭碗</small>
           </div>
         </div>
-        <span class="language-caption">Sprache wählen · Choose language · 选择语言</span>
+        <span class="language-caption">Sprache wählen</span>
         <div class="home-language-grid">
           <button type="button" data-start-lang="de">Deutsch</button>
           <button type="button" data-start-lang="en">English</button>
           <button type="button" data-start-lang="zh">中文</button>
         </div>
+        <p class="home-meta">Dresdner Straße 68 · 1200 Wien</p>
       </section>
 
       <section class="menu-content" id="menuContent" hidden>
       <header class="menu-hero">
-        <div class="brand-mini" aria-label="YO MIEN Logo"><span>YO</span><small>有面</small></div>
+        <img src="./youmien-logo.jpg" alt="YO MIEN Logo" />
         <div>
           <p data-de="Restaurant · Wien" data-en="Restaurant · Vienna" data-zh="餐馆 · 维也纳">YO MIEN</p>
           <h1 data-de="Speisekarte" data-en="Menu" data-zh="菜单">Speisekarte</h1>
@@ -86,14 +56,8 @@
       </div>
 
       <nav class="service-switch" aria-label="Menüzeiten">
-        <a class="active" href="#lunch">
-          <small data-de="11:00 - 16:00" data-en="11:00 - 16:00" data-zh="11:00 - 16:00">11:00 - 16:00</small>
-          <span data-de="Mittagskarte" data-en="Lunch Menu" data-zh="中午菜单">Mittagskarte</span>
-        </a>
-        <a href="#dinner">
-          <small data-de="ab 16:00" data-en="from 16:00" data-zh="16:00 后">ab 16:00</small>
-          <span data-de="Abendkarte" data-en="Dinner Menu" data-zh="晚上菜单">Abendkarte</span>
-        </a>
+        <a href="#lunch" data-de="Mittagskarte" data-en="Lunch Menu" data-zh="中午菜单">Mittagskarte</a>
+        <a href="#dinner" data-de="Abendkarte" data-en="Dinner Menu" data-zh="晚上菜单">Abendkarte</a>
       </nav>
 
       <section class="notice">
@@ -114,240 +78,72 @@
           <span data-de="Mo - Fr 11:00 - 16:00" data-en="Mon - Fri 11:00 - 16:00" data-zh="周一至周五 11:00 - 16:00">Mo - Fr 11:00 - 16:00</span>
         </div>
 
-        <section class="menu-section menu-paper-section">
-          <div class="section-heading">
-            <p>noodle soups</p>
-            <h3>NUDELSUPPEN</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-3.jpg" alt="" />
-          </div>
-          <article class="dish-card dish-card-list">
+        <section class="menu-section">
+          <h3 data-de="La Mien Nudelsuppen" data-en="La Mien Noodle Soups" data-zh="手工面汤">La Mien Nudelsuppen</h3>
+          <article class="dish-card">
             <div>
-              <h4>LA MIEN <span>[laa miaehn]</span></h4>
-              <p>Fliegende Nudeln aus Weizenmehl, à la minute gehobelt, serviert mit Pakchoi und Koriander.</p>
-              <p class="menu-english">Fresh made chinese noodles, served with pakchoi and coriander.</p>
-              <ul class="dish-options">
-                <li><span>mit Gemüse (v)</span><strong>€12,6</strong></li>
-                <li><span>mit Huhn</span><strong>€12,8</strong></li>
-                <li><span>mit Rind</span><strong>€13,4</strong></li>
-                <li><span>mit Ente</span><strong>€13,8</strong></li>
-                <li><span>mit Meeresfrüchten</span><strong>€14,0</strong></li>
-              </ul>
+              <h4 data-de="La Mien Gemüse" data-en="La Mien Vegetables" data-zh="蔬菜手工面">La Mien Gemüse</h4>
+              <p data-de="Frisch gehobelte Weizennudeln mit Pak Choi, Koriander und Gemüse" data-en="Freshly shaved wheat noodles with pak choi, coriander and vegetables" data-zh="现削小麦面，配小白菜、香菜和蔬菜">Frisch gehobelte Weizennudeln mit Pak Choi, Koriander und Gemüse</p>
             </div>
+            <strong>€12,6</strong>
           </article>
-          <article class="dish-card dish-card-list">
+          <article class="dish-card">
             <div>
-              <h4>LA MIEN KOKOS-CURRY</h4>
-              <p>Kokos-Curry Suppe mit handgehobelten Nudeln.</p>
-              <ul class="dish-options">
-                <li><span>mit Gemüse* (v)</span><strong>€13,6</strong></li>
-                <li><span>mit Huhn*</span><strong>€13,8</strong></li>
-                <li><span>mit Rind*</span><strong>€14,5</strong></li>
-                <li><span>mit Ente*</span><strong>€14,8</strong></li>
-                <li><span>mit Meeresfrüchten*</span><strong>€16,0</strong></li>
-                <li><span>mit faschiertem Rindfleisch*</span><strong>€14,8</strong></li>
-              </ul>
+              <h4 data-de="La Mien Huhn / Rind / Ente" data-en="La Mien Chicken / Beef / Duck" data-zh="鸡肉 / 牛肉 / 鸭肉手工面">La Mien Huhn / Rind / Ente</h4>
+              <p data-de="Mit Huhn €12,8 · mit Rind €13,4 · mit Ente €13,8" data-en="With chicken €12.8 · with beef €13.4 · with duck €13.8" data-zh="鸡肉 €12.8 · 牛肉 €13.4 · 鸭肉 €13.8">Mit Huhn €12,8 · mit Rind €13,4 · mit Ente €13,8</p>
             </div>
+            <strong data-de="ab €12,8" data-en="from €12.8" data-zh="起 €12.8">ab €12,8</strong>
           </article>
-          <article class="dish-card dish-card-list">
+          <article class="dish-card">
             <div>
-              <h4>PHO <span>[fooh]</span></h4>
-              <p>Traditionelle vietnamesische Reisbandnudelsuppe mit Sojasprossen, Koriander und Limette.</p>
-              <p class="menu-english">Traditional vietnamese riceflour-noodle soup with beansprouts, lime and coriander.</p>
-              <ul class="dish-options">
-                <li><span>mit Gemüse (v)</span><strong>€12,6</strong></li>
-                <li><span>mit Huhn</span><strong>€12,8</strong></li>
-                <li><span>mit Rind</span><strong>€13,4</strong></li>
-                <li><span>mit Ente</span><strong>€13,8</strong></li>
-                <li><span>mit Meeresfrüchten</span><strong>€14,0</strong></li>
-                <li><span>Kokos-Curry optional</span><strong>+€1,0</strong></li>
-              </ul>
+              <h4>La Mien Kokos-Curry</h4>
+              <p data-de="Mit Gemüse, Huhn, Rind, Ente oder Meeresfrüchten" data-en="With vegetables, chicken, beef, duck or seafood" data-zh="可选蔬菜、鸡肉、牛肉、鸭肉或海鲜">Mit Gemüse, Huhn, Rind, Ente oder Meeresfrüchten</p>
             </div>
-          </article>
-          <article class="dish-card dish-card-list">
-            <div>
-              <h4>UDON & WANTAN</h4>
-              <ul class="dish-options">
-                <li><span>Udon-Nudelsuppe mit Meeresfrüchten</span><strong>€14,5</strong></li>
-                <li><span>Wantansuppe mit Schrimpsnudeln und Ente</span><strong>€14,5</strong></li>
-                <li><span>Wantansuppe mit Pakchoi</span><strong>€13,8</strong></li>
-                <li><span>extra Kräuter</span><strong>+€1,8</strong></li>
-              </ul>
-            </div>
+            <strong data-de="ab €13,6" data-en="from €13.6" data-zh="起 €13.6">ab €13,6</strong>
           </article>
         </section>
 
-        <section class="menu-section menu-paper-section">
-          <div class="section-heading">
-            <p>rice bowls</p>
-            <h3>REISSCHALEN</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-3.jpg" alt="" />
-          </div>
-          <article class="dish-card dish-card-list">
+        <section class="menu-section">
+          <h3 data-de="Reisschalen" data-en="Rice Bowls" data-zh="盖饭">Reisschalen</h3>
+          <article class="dish-card">
             <div>
-              <h4>MIT REIS UND SAUCE</h4>
-              <ul class="dish-options">
-                <li><span>Chili-Huhn & Thaibasilikum*</span><strong>€13,0</strong></li>
-                <li><span>Chili-Beef & Thaibasilikum*</span><strong>€13,5</strong></li>
-                <li><span>Chili-Ente & Thaibasilikum*</span><strong>€13,5</strong></li>
-                <li><span>Chili-Garnelen & Thaibasilikum*</span><strong>€13,9</strong></li>
-                <li><span>Huhn und Ingwer</span><strong>€13,0</strong></li>
-                <li><span>Huhn & Zitronengras</span><strong>€13,0</strong></li>
-                <li><span>Bulgogi Rind / Black Pepper Beef / Kimchi Beef</span><strong>€13,5</strong></li>
-                <li><span>Huhn Bulgogi</span><strong>€13,0</strong></li>
-                <li><span>Lachs Teriyaki / Tintenfisch*</span><strong>€13,9</strong></li>
-                <li><span>Chili Tofu, Chili-Melanzani oder Teriyaki Tofu°v</span><strong>€12,8</strong></li>
-                <li><span>Gemüse°v</span><strong>€12,6</strong></li>
-                <li><span>Tofu und Kräuterseitling*v</span><strong>€13,0</strong></li>
-              </ul>
+              <h4 data-de="Chili-Huhn / Chili-Beef / Chili-Ente" data-en="Chili Chicken / Chili Beef / Chili Duck" data-zh="辣味鸡肉 / 牛肉 / 鸭肉">Chili-Huhn / Chili-Beef / Chili-Ente</h4>
+              <p data-de="Mit Thaibasilikum, würziger Sauce und Reis" data-en="With Thai basil, spicy sauce and rice" data-zh="配泰式罗勒、香辣酱汁和米饭">Mit Thaibasilikum, würziger Sauce und Reis</p>
             </div>
+            <strong data-de="ab €13,0" data-en="from €13.0" data-zh="起 €13.0">ab €13,0</strong>
           </article>
-          <article class="dish-card compact-dish">
+          <article class="dish-card">
             <div>
-              <h4>Suppe</h4>
-              <p>Kleine Hühnerbrühe Gemüse Suppe</p>
+              <h4>Bulgogi / Black Pepper Beef / Kimchi Beef</h4>
+              <p data-de="Koreanisch mariniertes Rind, Black Pepper Beef oder Kimchi Beef" data-en="Korean marinated beef, black pepper beef or kimchi beef" data-zh="韩式腌牛肉、黑椒牛肉或泡菜牛肉">Koreanisch mariniertes Rind, Black Pepper Beef oder Kimchi Beef</p>
             </div>
-            <strong>€2,9</strong>
+            <strong data-de="ab €13,5" data-en="from €13.5" data-zh="起 €13.5">ab €13,5</strong>
+          </article>
+          <article class="dish-card">
+            <div>
+              <h4 data-de="Tofu & Gemüse" data-en="Tofu & Vegetables" data-zh="豆腐和蔬菜">Tofu & Gemüse</h4>
+              <p data-de="Chili-Tofu, Chili-Melanzani, Teriyaki-Tofu oder Gemüse" data-en="Chili tofu, chili eggplant, teriyaki tofu or vegetables" data-zh="辣豆腐、辣茄子、照烧豆腐或蔬菜">Chili-Tofu, Chili-Melanzani, Teriyaki-Tofu oder Gemüse</p>
+            </div>
+            <strong data-de="ab €12,6" data-en="from €12.6" data-zh="起 €12.6">ab €12,6</strong>
           </article>
         </section>
 
-        <section class="menu-section menu-paper-section">
-          <div class="section-heading">
-            <p>asian twist</p>
-            <h3>GO PASTA</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-8.jpg" alt="" />
-          </div>
-          <article class="dish-card dish-card-list">
+        <section class="menu-section">
+          <h3>Salat & Poké</h3>
+          <article class="dish-card">
             <div>
-              <p>Pasta von GO interpretiert, mit asiatischen Saucen.</p>
-              <ul class="dish-options">
-                <li><span>Penne mit Huhn & Penang Kokos-Curry*</span><strong>€13,5</strong></li>
-                <li><span>Penne mit Rind, Thaibasilikum und frischem Pfeffer*</span><strong>€14,0</strong></li>
-                <li><span>Tagliatelle al olio mit Garnelen und Thaibasilikum</span><strong>€14,8</strong></li>
-                <li><span>Tagliatelle mit Lachs & rotem Kokos-Curry*</span><strong>€14,8</strong></li>
-              </ul>
+              <h4 data-de="Salat-Schalen" data-en="Salad Bowls" data-zh="沙拉碗">Salat-Schalen</h4>
+              <p data-de="Mit Hühnerfilet, Thai-Beef, Garnelen oder Lachs und asiatischem Dressing" data-en="With chicken fillet, Thai beef, prawns or salmon and Asian dressing" data-zh="配鸡胸肉、泰式牛肉、虾或三文鱼和亚洲酱汁">Mit Hühnerfilet, Thai-Beef, Garnelen oder Lachs und asiatischem Dressing</p>
             </div>
+            <strong data-de="ab €13,0" data-en="from €13.0" data-zh="起 €13.0">ab €13,0</strong>
           </article>
-        </section>
-
-        <section class="menu-section menu-paper-section">
-          <div class="section-heading">
-            <p>fried noodles</p>
-            <h3>GEBRATENE NUDELN / UDON</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-3.jpg" alt="" />
-          </div>
-          <article class="dish-card dish-card-list">
+          <article class="dish-card">
             <div>
-              <h4>Gebratene hausgemachte Nudeln</h4>
-              <ul class="dish-options">
-                <li><span>mit Gemüse°</span><strong>€12,5</strong></li>
-                <li><span>mit Huhn</span><strong>€13,0</strong></li>
-                <li><span>mit Rind</span><strong>€13,5</strong></li>
-                <li><span>mit Ente</span><strong>€13,8</strong></li>
-                <li><span>mit Garnelen</span><strong>€14,5</strong></li>
-              </ul>
+              <h4>Poké Bowl</h4>
+              <p data-de="Mit Sushi-Reis, Avocado, Gurke, Karotten und frischen Kräutern" data-en="With sushi rice, avocado, cucumber, carrots and fresh herbs" data-zh="配寿司饭、牛油果、黄瓜、胡萝卜和香草">Mit Sushi-Reis, Avocado, Gurke, Karotten und frischen Kräutern</p>
             </div>
+            <strong data-de="ab €12,8" data-en="from €12.8" data-zh="起 €12.8">ab €12,8</strong>
           </article>
-          <article class="dish-card dish-card-list">
-            <div>
-              <h4>Gebratene Udon</h4>
-              <ul class="dish-options">
-                <li><span>mit Chili Beef</span><strong>€14,5</strong></li>
-                <li><span>mit Meeresfrüchten</span><strong>€14,8</strong></li>
-              </ul>
-            </div>
-          </article>
-        </section>
-
-        <section class="menu-section menu-paper-section">
-          <div class="section-heading">
-            <p>dumplings</p>
-            <h3>GYOZA</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-5.jpg" alt="" />
-          </div>
-          <article class="dish-card dish-card-list">
-            <div>
-              <p>Gegrillte Teigtaschen, serviert mit Soja-Sesam Sauce.</p>
-              <ul class="dish-options two-price">
-                <li><span>vegetarisch°v</span><strong>6 Stk. €8,5 · 10 Stk. €11,5</strong></li>
-                <li><span>mit Schweinefleisch</span><strong>6 Stk. €8,8 · 10 Stk. €11,8</strong></li>
-                <li><span>mit Huhn und Shiitake</span><strong>6 Stk. €8,6 · 10 Stk. €11,6</strong></li>
-                <li><span>mit Garnelen</span><strong>6 Stk. €9,8 · 10 Stk. €12,8</strong></li>
-                <li><span>Gyoza Mix</span><strong>8 Stk. €9,9 · 12 Stk. €13,2</strong></li>
-              </ul>
-            </div>
-          </article>
-        </section>
-
-        <section class="menu-section menu-paper-section">
-          <div class="section-heading">
-            <p>with rice</p>
-            <h3>KOKOS-CURRY</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-6.jpg" alt="" />
-          </div>
-          <article class="dish-card dish-card-list">
-            <div>
-              <ul class="dish-options">
-                <li><span>mit Gemüse°*</span><strong>€12,8</strong></li>
-                <li><span>mit Huhn*</span><strong>€13,8</strong></li>
-                <li><span>mit Garnelen*</span><strong>€14,8</strong></li>
-              </ul>
-            </div>
-          </article>
-        </section>
-
-        <section class="menu-section menu-paper-section">
-          <div class="section-heading">
-            <p>fresh bowls</p>
-            <h3>POKÉ & SALAT</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-7.jpg" alt="" />
-          </div>
-          <article class="dish-card dish-card-list">
-            <div>
-              <h4>POKÉ BOWL</h4>
-              <p>Sushi Reis, Avocado, Rucola, Gurken, Karotten und Kräuter.</p>
-              <ul class="dish-options">
-                <li><span>Tofu Poké</span><strong>€12,8</strong></li>
-                <li><span>Lachs Poké</span><strong>€14,2</strong></li>
-                <li><span>Garnelen Poké</span><strong>€14,2</strong></li>
-                <li><span>Huhn Poké</span><strong>€13,5</strong></li>
-              </ul>
-            </div>
-          </article>
-          <article class="dish-card dish-card-list">
-            <div>
-              <h4>SALAT-SCHALEN</h4>
-              <p>Alle Salate werden mit Brot und asiatischem Dressing serviert.</p>
-              <ul class="dish-options">
-                <li><span>mit Hühnerfilet & Soja-Sesam-Dressing</span><strong>€13,0</strong></li>
-                <li><span>mit Thai-Beef & Chilisauce*</span><strong>€13,8</strong></li>
-                <li><span>mit Garnelen & Soja-Sesam-Dressing</span><strong>€14,0</strong></li>
-                <li><span>mit Lachsfilet und Thai-Dressing*</span><strong>€14,0</strong></li>
-              </ul>
-            </div>
-          </article>
-        </section>
-
-        <section class="menu-section menu-paper-section extras-section">
-          <div class="section-heading">
-            <p>extra / Beilage</p>
-            <h3>EXTRAS</h3>
-            <img class="section-photo" src="./assets/pdf-dishes/embedded-8.jpg" alt="" />
-          </div>
-          <div class="extra-grid">
-            <span>Reis <b>€2,5</b></span>
-            <span>Sauce <b>€1,0</b></span>
-            <span>Nudel <b>€2,8</b></span>
-            <span>Salat <b>€1,8</b></span>
-            <span>Gemüse <b>€1,8</b></span>
-            <span>Basilikum <b>€1,8</b></span>
-            <span>Ei <b>€1,5</b></span>
-            <span>Tofu <b>€1,5</b></span>
-            <span>Garnelen <b>€3,5</b></span>
-            <span>Rind <b>€2,8</b></span>
-            <span>Huhn <b>€2,0</b></span>
-            <span>Gemüse statt Reis <b>€1,5</b></span>
-          </div>
-          <p class="menu-legend">v vegan · ° vegetarisch · * scharf · (v) Suppen wahlweise vegan · Preise inkl. MwSt.</p>
         </section>
       </section>
 
@@ -485,14 +281,9 @@
       <footer class="menu-footer">
         <section class="contact-card" aria-label="Restaurant Kontakt">
           <h3>YO MIEN</h3>
-          <div class="contact-links" aria-label="YO MIEN Kontaktlinks">
-            <a href="https://www.yomien.at/" aria-label="Website"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path class="icon-cutout" d="M3.5 12h17M12 3c2.2 2.4 3.4 5.4 3.4 9s-1.2 6.6-3.4 9c-2.2-2.4-3.4-5.4-3.4-9S9.8 5.4 12 3Z" /></svg></a>
-            <a href="https://www.facebook.com/yomien.vienna" aria-label="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path class="icon-cutout" d="M13.7 8.7h2V5.8h-2.5c-2.9 0-4.4 1.7-4.4 4.3v1.5H6.7v3.1h2.1V20h3.4v-5.3h2.5l.5-3.1h-3V10c0-.8.4-1.3 1.5-1.3Z" /></svg></a>
-            <a href="https://www.instagram.com/yomien_vienna/" aria-label="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" /><circle class="icon-hole" cx="12" cy="12" r="3.2" /><circle class="icon-dot" cx="17.2" cy="6.8" r="1.1" /></svg></a>
-            <a href="https://www.tripadvisor.com/Restaurant_Review-g190454-d17912325-Reviews-YO_MIEN-Vienna.html" aria-label="Tripadvisor"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 6.4c3.7 0 6.7 1 8.7 2.7l-2.1.3A5.1 5.1 0 0 1 19 13a5 5 0 0 1-8 4l-1.1 1.7L8.8 17A5 5 0 0 1 1 13a5.1 5.1 0 0 1 .4-2.1L.1 9.1C2.8 7.3 6.6 6.4 12 6.4Z" /><circle class="icon-cutout" cx="6" cy="13" r="3.2" /><circle class="icon-cutout" cx="18" cy="13" r="3.2" /><circle cx="6" cy="13" r="1.25" /><circle cx="18" cy="13" r="1.25" /></svg></a>
-            <a href="tel:+4319054226" aria-label="Call YO MIEN"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 3.2c.7-.2 1.5.1 1.9.8l1.7 3c.4.7.3 1.5-.3 2.1l-1.2 1.2c1.1 2.2 2.9 4 5.1 5.1l1.2-1.2c.6-.6 1.4-.7 2.1-.3l3 1.7c.7.4 1 1.2.8 1.9l-.7 2.5c-.3 1-1.2 1.6-2.2 1.5C10.1 20.7 3.3 13.9 2.5 6.1c-.1-1 .5-1.9 1.5-2.2l2.5-.7Z" /></svg></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=YO%20MIEN%20Dresdner%20Stra%C3%9Fe%2068%201200%20Wien" aria-label="Google Maps"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 5.5 5-2 8 3 5-2v14l-5 2-8-3-5 2V5.5Z" /><path class="icon-cutout" d="M16 6.5v13M8 3.5v13" /><circle class="icon-pin" cx="16.5" cy="8" r="2.5" /></svg></a>
-          </div>
+          <p>Dresdner Straße 68 · 1200 Wien</p>
+          <p><a href="tel:+4319054226">01 905 4226</a> · <a href="https://www.yomien.at/">yomien.at</a></p>
+          <p><a href="https://www.instagram.com/yomien_vienna/">@yomien_vienna</a></p>
           <p>Mo - Fr 11:00 - 22:00 · Sa 12:00 - 22:00 · So geschlossen</p>
         </section>
         <p data-de="v vegan · ° vegetarisch · * scharf · Preise inkl. MwSt." data-en="v vegan · ° vegetarian · * spicy · prices include VAT" data-zh="v 纯素 · ° 素食 · * 辣 · 价格含税">v vegan · ° vegetarisch · * scharf · Preise inkl. MwSt.</p>
@@ -506,143 +297,12 @@
       const menuContent = document.querySelector("#menuContent");
       const startLanguageButtons = document.querySelectorAll("[data-start-lang]");
       const languageButtons = document.querySelectorAll("[data-lang]");
-      const serviceLinks = document.querySelectorAll(".service-switch a");
       const translatable = document.querySelectorAll("[data-de][data-en]");
-      const menuCopy = {
-        "noodle soups": { en: "noodle soups", zh: "汤面" },
-        "Lunch": { en: "Lunch", zh: "午餐" },
-        "Dinner": { en: "Dinner", zh: "晚餐" },
-        "rice bowls": { en: "rice bowls", zh: "盖饭" },
-        "asian twist": { en: "asian twist", zh: "亚洲风味意面" },
-        "fried noodles": { en: "fried noodles", zh: "炒面" },
-        "dumplings": { en: "dumplings", zh: "煎饺" },
-        "with rice": { en: "with rice", zh: "配米饭" },
-        "fresh bowls": { en: "fresh bowls", zh: "鲜食碗" },
-        "extra / Beilage": { en: "extra / sides", zh: "加点 / 配菜" },
-        "NUDELSUPPEN": { en: "NOODLE SOUPS", zh: "汤面" },
-        "REISSCHALEN": { en: "RICE BOWLS", zh: "盖饭" },
-        "GO PASTA": { en: "GO PASTA", zh: "亚洲风味意面" },
-        "GEBRATENE NUDELN / UDON": { en: "FRIED NOODLES / UDON", zh: "炒面 / 乌冬" },
-        "GYOZA": { en: "GYOZA", zh: "煎饺" },
-        "KOKOS-CURRY": { en: "COCONUT CURRY", zh: "椰香咖喱" },
-        "POKÉ & SALAT": { en: "POKÉ & SALAD", zh: "波奇碗和沙拉" },
-        "EXTRAS": { en: "EXTRAS", zh: "加点" },
-        "LA MIEN [laa miaehn]": { en: "LA MIEN [laa miaehn]", zh: "手工面 [La Mien]" },
-        "LA MIEN KOKOS-CURRY": { en: "LA MIEN COCONUT CURRY", zh: "椰香咖喱手工面" },
-        "PHO [fooh]": { en: "PHO [fooh]", zh: "越南粉 [Pho]" },
-        "UDON & WANTAN": { en: "UDON & WONTON", zh: "乌冬和云吞" },
-        "MIT REIS UND SAUCE": { en: "WITH RICE AND SAUCE", zh: "米饭配酱汁" },
-        "Suppe": { en: "Soup", zh: "汤" },
-        "Gebratene hausgemachte Nudeln": { en: "Fried homemade noodles", zh: "炒自制面" },
-        "Gebratene Udon": { en: "Fried udon", zh: "炒乌冬" },
-        "POKÉ BOWL": { en: "POKÉ BOWL", zh: "波奇碗" },
-        "SALAT-SCHALEN": { en: "SALAD BOWLS", zh: "沙拉碗" },
-        "Wantansuppe": { en: "Wonton soup", zh: "云吞汤" },
-        "Hakao / Siaomai / Spinattaschen": { en: "Hakao / Siu Mai / Spinach Dumplings", zh: "虾饺 / 烧卖 / 菠菜饺" },
-        "Pad Thai": { en: "Pad Thai", zh: "泰式炒河粉" },
-        "Knusprige Ente Panang Curry": { en: "Crispy Duck Panang Curry", zh: "脆皮鸭 Panang 咖喱" },
-        "Gan Bian Rindfleisch / Szechuan Rind": { en: "Gan Bian Beef / Szechuan Beef", zh: "干煸牛肉 / 川味牛肉" },
-        "Gyoza": { en: "Gyoza", zh: "煎饺" },
-        "Mochi / Mangopudding / Apfel Gyoza": { en: "Mochi / Mango Pudding / Apple Gyoza", zh: "麻薯 / 芒果布丁 / 苹果煎饺" },
-        "Spicy Wantan / Tom Yang Gong": { en: "Spicy Wonton / Tom Yang Gong", zh: "辣云吞 / 冬阴功" },
-        "Fliegende Nudeln aus Weizenmehl, à la minute gehobelt, serviert mit Pakchoi und Koriander.": { en: "Fresh wheat noodles, shaved à la minute and served with pak choi and coriander.", zh: "现削小麦面，配小白菜和香菜。" },
-        "Fresh made chinese noodles, served with pakchoi and coriander.": { en: "Fresh made Chinese noodles, served with pak choi and coriander.", zh: "新鲜中式手工面，配小白菜和香菜。" },
-        "Kokos-Curry Suppe mit handgehobelten Nudeln.": { en: "Coconut curry soup with freshly shaved noodles.", zh: "椰香咖喱汤配现削手工面。" },
-        "Traditionelle vietnamesische Reisbandnudelsuppe mit Sojasprossen, Koriander und Limette.": { en: "Traditional Vietnamese rice noodle soup with bean sprouts, coriander and lime.", zh: "传统越南河粉汤，配豆芽、香菜和青柠。" },
-        "Traditional vietnamese riceflour-noodle soup with beansprouts, lime and coriander.": { en: "Traditional Vietnamese rice noodle soup with bean sprouts, lime and coriander.", zh: "传统越南米粉汤，配豆芽、青柠和香菜。" },
-        "Kleine Hühnerbrühe Gemüse Suppe": { en: "Small chicken broth vegetable soup", zh: "小份鸡汤蔬菜汤" },
-        "Pasta von GO interpretiert, mit asiatischen Saucen.": { en: "Pasta interpreted by GO with Asian sauces.", zh: "GO 风格亚洲酱汁意面。" },
-        "Gegrillte Teigtaschen, serviert mit Soja-Sesam Sauce.": { en: "Grilled dumplings, served with soy-sesame sauce.", zh: "煎饺，配酱油芝麻酱。" },
-        "Sushi Reis, Avocado, Rucola, Gurken, Karotten und Kräuter.": { en: "Sushi rice, avocado, arugula, cucumber, carrots and herbs.", zh: "寿司饭、牛油果、芝麻菜、黄瓜、胡萝卜和香草。" },
-        "Alle Salate werden mit Brot und asiatischem Dressing serviert.": { en: "All salads are served with bread and Asian dressing.", zh: "所有沙拉配面包和亚洲风味酱汁。" },
-        "mit Gemüse (v)": { en: "with vegetables (v)", zh: "蔬菜 (可纯素)" },
-        "mit Huhn": { en: "with chicken", zh: "鸡肉" },
-        "mit Rind": { en: "with beef", zh: "牛肉" },
-        "mit Ente": { en: "with duck", zh: "鸭肉" },
-        "mit Meeresfrüchten": { en: "with seafood", zh: "海鲜" },
-        "mit Gemüse* (v)": { en: "with vegetables* (v)", zh: "蔬菜* (可纯素)" },
-        "mit Huhn*": { en: "with chicken*", zh: "鸡肉*" },
-        "mit Rind*": { en: "with beef*", zh: "牛肉*" },
-        "mit Ente*": { en: "with duck*", zh: "鸭肉*" },
-        "mit Meeresfrüchten*": { en: "with seafood*", zh: "海鲜*" },
-        "mit faschiertem Rindfleisch*": { en: "with minced beef*", zh: "牛肉末*" },
-        "Kokos-Curry optional": { en: "coconut curry optional", zh: "可加椰香咖喱" },
-        "Udon-Nudelsuppe mit Meeresfrüchten": { en: "udon noodle soup with seafood", zh: "海鲜乌冬汤面" },
-        "Wantansuppe mit Schrimpsnudeln und Ente": { en: "wonton soup with shrimp noodles and duck", zh: "云吞汤配虾面和鸭肉" },
-        "Wantansuppe mit Pakchoi": { en: "wonton soup with pak choi", zh: "小白菜云吞汤" },
-        "extra Kräuter": { en: "extra herbs", zh: "加香草" },
-        "Chili-Huhn & Thaibasilikum*": { en: "chili chicken & Thai basil*", zh: "辣味鸡肉配泰式罗勒*" },
-        "Chili-Beef & Thaibasilikum*": { en: "chili beef & Thai basil*", zh: "辣味牛肉配泰式罗勒*" },
-        "Chili-Ente & Thaibasilikum*": { en: "chili duck & Thai basil*", zh: "辣味鸭肉配泰式罗勒*" },
-        "Chili-Garnelen & Thaibasilikum*": { en: "chili prawns & Thai basil*", zh: "辣味虾配泰式罗勒*" },
-        "Huhn und Ingwer": { en: "chicken and ginger", zh: "鸡肉配姜" },
-        "Huhn & Zitronengras": { en: "chicken & lemongrass", zh: "鸡肉配香茅" },
-        "Bulgogi Rind / Black Pepper Beef / Kimchi Beef": { en: "bulgogi beef / black pepper beef / kimchi beef", zh: "韩式牛肉 / 黑椒牛肉 / 泡菜牛肉" },
-        "Huhn Bulgogi": { en: "chicken bulgogi", zh: "韩式鸡肉" },
-        "Lachs Teriyaki / Tintenfisch*": { en: "salmon teriyaki / cuttlefish*", zh: "照烧三文鱼 / 鱿鱼*" },
-        "Chili Tofu, Chili-Melanzani oder Teriyaki Tofu°v": { en: "chili tofu, chili eggplant or teriyaki tofu°v", zh: "辣豆腐、辣茄子或照烧豆腐°v" },
-        "Gemüse°v": { en: "vegetables°v", zh: "蔬菜°v" },
-        "Tofu und Kräuterseitling*v": { en: "tofu and king oyster mushrooms*v", zh: "豆腐和杏鲍菇*v" },
-        "Penne mit Huhn & Penang Kokos-Curry*": { en: "penne with chicken & Penang coconut curry*", zh: "鸡肉 Penang 椰香咖喱通心粉*" },
-        "Penne mit Rind, Thaibasilikum und frischem Pfeffer*": { en: "penne with beef, Thai basil and fresh pepper*", zh: "牛肉泰式罗勒鲜胡椒通心粉*" },
-        "Tagliatelle al olio mit Garnelen und Thaibasilikum": { en: "tagliatelle al olio with prawns and Thai basil", zh: "橄榄油宽面配虾和泰式罗勒" },
-        "Tagliatelle mit Lachs & rotem Kokos-Curry*": { en: "tagliatelle with salmon & red coconut curry*", zh: "三文鱼红椰香咖喱宽面*" },
-        "mit Gemüse°": { en: "with vegetables°", zh: "蔬菜°" },
-        "mit Garnelen": { en: "with prawns", zh: "虾" },
-        "mit Garnelen*": { en: "with prawns*", zh: "虾*" },
-        "mit Chili Beef": { en: "with chili beef", zh: "辣味牛肉" },
-        "vegetarisch°v": { en: "vegetarian°v", zh: "素食°v" },
-        "mit Schweinefleisch": { en: "with pork", zh: "猪肉" },
-        "mit Huhn und Shiitake": { en: "with chicken and shiitake", zh: "鸡肉香菇" },
-        "Gyoza Mix": { en: "gyoza mix", zh: "煎饺拼盘" },
-        "mit Gemüse°*": { en: "with vegetables°*", zh: "蔬菜°*" },
-        "Tofu Poké": { en: "tofu poké", zh: "豆腐波奇碗" },
-        "Lachs Poké": { en: "salmon poké", zh: "三文鱼波奇碗" },
-        "Garnelen Poké": { en: "prawn poké", zh: "虾波奇碗" },
-        "Huhn Poké": { en: "chicken poké", zh: "鸡肉波奇碗" },
-        "mit Hühnerfilet & Soja-Sesam-Dressing": { en: "with chicken fillet & soy-sesame dressing", zh: "鸡胸肉配酱油芝麻酱" },
-        "mit Thai-Beef & Chilisauce*": { en: "with Thai beef & chili sauce*", zh: "泰式牛肉配辣酱*" },
-        "mit Garnelen & Soja-Sesam-Dressing": { en: "with prawns & soy-sesame dressing", zh: "虾配酱油芝麻酱" },
-        "mit Lachsfilet und Thai-Dressing*": { en: "with salmon fillet and Thai dressing*", zh: "三文鱼柳配泰式酱汁*" },
-        "6 Stk. €8,5 · 10 Stk. €11,5": { en: "6 pcs. €8.5 · 10 pcs. €11.5", zh: "6 个 €8.5 · 10 个 €11.5" },
-        "6 Stk. €8,8 · 10 Stk. €11,8": { en: "6 pcs. €8.8 · 10 pcs. €11.8", zh: "6 个 €8.8 · 10 个 €11.8" },
-        "6 Stk. €8,6 · 10 Stk. €11,6": { en: "6 pcs. €8.6 · 10 pcs. €11.6", zh: "6 个 €8.6 · 10 个 €11.6" },
-        "6 Stk. €9,8 · 10 Stk. €12,8": { en: "6 pcs. €9.8 · 10 pcs. €12.8", zh: "6 个 €9.8 · 10 个 €12.8" },
-        "8 Stk. €9,9 · 12 Stk. €13,2": { en: "8 pcs. €9.9 · 12 pcs. €13.2", zh: "8 个 €9.9 · 12 个 €13.2" },
-        "Reis €2,5": { en: "rice €2.5", zh: "米饭 €2.5" },
-        "Sauce €1,0": { en: "sauce €1.0", zh: "酱汁 €1.0" },
-        "Nudel €2,8": { en: "noodles €2.8", zh: "面 €2.8" },
-        "Salat €1,8": { en: "salad €1.8", zh: "沙拉 €1.8" },
-        "Gemüse €1,8": { en: "vegetables €1.8", zh: "蔬菜 €1.8" },
-        "Basilikum €1,8": { en: "basil €1.8", zh: "罗勒 €1.8" },
-        "Ei €1,5": { en: "egg €1.5", zh: "鸡蛋 €1.5" },
-        "Tofu €1,5": { en: "tofu €1.5", zh: "豆腐 €1.5" },
-        "Garnelen €3,5": { en: "prawns €3.5", zh: "虾 €3.5" },
-        "Rind €2,8": { en: "beef €2.8", zh: "牛肉 €2.8" },
-        "Huhn €2,0": { en: "chicken €2.0", zh: "鸡肉 €2.0" },
-        "Gemüse statt Reis €1,5": { en: "vegetables instead of rice €1.5", zh: "蔬菜替换米饭 €1.5" },
-        "v vegan · ° vegetarisch · * scharf · (v) Suppen wahlweise vegan · Preise inkl. MwSt.": { en: "v vegan · ° vegetarian · * spicy · (v) soups optionally vegan · prices include VAT", zh: "v 纯素 · ° 素食 · * 辣 · (v) 汤可选纯素 · 价格含税" }
-      };
-
-      const extraTranslatable = document.querySelectorAll(
-        ".menu-content .service-title p, .menu-content .section-heading p, .menu-content .menu-paper-section h3, .menu-content .menu-paper-section h4, .menu-content .menu-paper-section p, .menu-content .dish-options span, .menu-content .two-price strong, .menu-content .extra-grid span, .menu-content .menu-legend, .dinner-block h4:not([data-de])"
-      );
-
-      extraTranslatable.forEach((node) => {
-        const key = node.textContent.trim().replace(/\s+/g, " ");
-        if (menuCopy[key]) {
-          node.dataset.copyKey = key;
-        }
-      });
 
       const setLanguage = (language) => {
         document.documentElement.lang = language;
         translatable.forEach((node) => {
           node.textContent = node.dataset[language] || node.dataset.en || node.dataset.de;
-        });
-        document.querySelectorAll("[data-copy-key]").forEach((node) => {
-          const key = node.dataset.copyKey;
-          node.textContent = language === "de" ? key : menuCopy[key]?.[language] || key;
         });
         languageButtons.forEach((button) => {
           button.classList.toggle("active", button.dataset.lang === language);
@@ -665,23 +325,7 @@
         button.addEventListener("click", () => openMenu(button.dataset.startLang));
       });
 
-      const setActiveService = () => {
-        const dinnerTop = document.querySelector("#dinner").offsetTop - 120;
-        const activeHash = window.scrollY >= dinnerTop ? "#dinner" : "#lunch";
-        serviceLinks.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === activeHash);
-        });
-      };
-
-      window.addEventListener("scroll", setActiveService, { passive: true });
-      serviceLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          serviceLinks.forEach((item) => item.classList.toggle("active", item === link));
-        });
-      });
-
       setLanguage(localStorage.getItem("yoMienMenuLanguage") || "de");
-      setActiveService();
     </script>
   </body>
 </html>
