@@ -872,3 +872,60 @@ th {
     min-height: 880px;
   }
 }
+
+.social-hero {
+  margin-top: 10px;
+}
+
+.social-links {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(22px, 5vh, 50px);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.38);
+  border-radius: 999px;
+  min-width: 62px;
+  padding: 10px 14px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0.4px;
+}
+
+.contact-line {
+  position: relative;
+  z-index: 1;
+  margin: 10px 0 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 1.2px;
+}
+
+.menu-entry {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: fit-content;
+  margin: 22px auto 0;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff2c2c, #b90505);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(180, 0, 0, 0.4);
+}
+
+.screen-login .login-card {
+  margin-top: clamp(40px, 10vh, 90px);
+}
