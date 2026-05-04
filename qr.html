@@ -1,21 +1,29 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>YO MIEN 菜单二维码</title>
-    <link rel="stylesheet" href="./menu.css?v=20260504-menu" />
+    <title>YO MIEN QR Speisekarte</title>
+    <link rel="stylesheet" href="./menu.css?v=20260504-contact" />
   </head>
   <body>
     <main class="qr-page">
-      <img class="qr-logo" src="./youmien-logo.jpg" alt="YO MIEN 有面 logo" />
-      <h1>扫码查看菜单</h1>
+      <img class="qr-logo" src="./youmien-logo.jpg" alt="YO MIEN Logo" />
+      <h1>QR Speisekarte</h1>
+      <p class="qr-subtitle">Deutsch · English · 中文</p>
       <img
         class="qr-image"
         src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=https%3A%2F%2Fyomen.vercel.app%2Fmenu.html"
-        alt="YO MIEN 菜单二维码"
+        alt="YO MIEN QR Speisekarte"
       />
-      <p>二维码链接：yomen.vercel.app/menu.html</p>
+      <section class="contact-card qr-contact" aria-label="Restaurant Kontakt">
+        <h2>YO MIEN</h2>
+        <p>Dresdner Straße 68 · 1200 Wien</p>
+        <p><a href="tel:+4319054226">01 905 4226</a></p>
+        <p><a href="https://www.yomien.at/">www.yomien.at</a> · <a href="https://www.instagram.com/yomien_vienna/">Instagram</a></p>
+        <p>Mo - Fr 11:00 - 22:00 · Sa 12:00 - 22:00 · So geschlossen</p>
+      </section>
+      <p>yomen.vercel.app/menu.html</p>
     </main>
   </body>
 </html>
