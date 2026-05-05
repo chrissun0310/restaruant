@@ -4,17 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>YO MIEN QR Speisekarte</title>
-    <link rel="stylesheet" href="./menu.css?v=20260505-clean" />
+    <link rel="stylesheet" href="./menu.css?v=20260505-full-menu-fix" />
   </head>
   <body>
     <main class="qr-page">
-      <div class="brand-mini qr-logo" aria-label="YO MIEN Logo"><span>YO</span><small>有面</small></div>
+      <div class="home-logo-stage qr-logo-stage" aria-label="YO MIEN Logo">
+        <div class="logo-mark" aria-hidden="true">
+          <span class="logo-main">YO</span>
+          <span class="logo-chinese">有<br />面</span>
+          <span class="logo-sub">MIEN</span>
+        </div>
+      </div>
       <p class="qr-eyebrow">YO MIEN · 有面</p>
       <h1>Scan for Menu</h1>
       <p class="qr-subtitle">Deutsch · English · 中文</p>
-      <img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=https%3A%2F%2Fyomen.vercel.app%2Fmenu.html" alt="YO MIEN QR Speisekarte" />
+      <img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=https%3A%2F%2Fyomen.vercel.app%2Fmenu.html%3Fv%3D20260505-full-menu-fix" alt="YO MIEN QR Speisekarte" />
       <div class="qr-actions" aria-label="Menu links">
-        <a href="./menu.html">Open Menu</a>
+        <a href="./menu.html?v=20260505-full-menu-fix">Open Menu</a>
         <span>yomen.vercel.app/menu.html</span>
       </div>
       <section class="contact-card qr-contact" aria-label="Restaurant Kontakt">
