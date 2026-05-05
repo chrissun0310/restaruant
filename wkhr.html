@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Arbeitszeiterfassung</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f6fa;
+  color: #222;
+  min-height: 100vh;
+}
+
+/* 顶部 */
+.header {
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  padding: 16px 20px 12px;
+  position: sticky; top: 0; z-index: 10;
+}
+.header h1 { font-size: 20px; font-weight: 700; }
+.header p { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+
+/* 工人切换 */
+.worker-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+  align-items: center;
+}
+.worker-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: 2px solid #1a73e8;
+  border-radius: 20px;
+  background: #fff;
+  color: #1a73e8;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+}
+.worker-btn.active, .worker-btn:active {
+  background: #1a73e8;
+  color: #fff;
+}
+.worker-btn .delete-worker {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e53935;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.worker-btn:hover .delete-worker {
+  display: flex;
+}
+.add-worker {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 2px dashed #1a73e8;
+  background: transparent;
+  color: #1a73e8;
+  font-size: 20px;
+  cursor: pointer;
+  display: grid; place-items: center;
+}
+
+/* 表单 */
+.form-card {
+  margin: 16px 20px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.form-card h2 {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #333;
+}
+.field {
+  margin-bottom: 14px;
+}
+.field label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.field input:focus {
+  outline: none;
+  border-color: #1a73e8;
+}
+.save-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: 0.2s;
+}
+.save-btn:active { transform: scale(0.98); opacity: 0.9; }
+
+/* 快速时间按钮 */
+.quick-times {
+  display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;
+}
+.quick-btn {
+  padding: 6px 12px;
+  border: 1px solid #1a73e8;
+  border-radius: 8px;
+  background: #e8f0fe;
+  color: #1a73e8;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 记录列表 */
+.records-section {
+  margin: 16px 20px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.records-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.records-header h2 { font-size: 16px; color: #333; }
+.records-header span { font-size: 13px; color: #1a73e8; font-weight: 600; }
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.record-item:last-child { border-bottom: none; }
+.record-date { font-weight: 600; font-size: 14px; }
+.record-time { font-size: 13px; color: #666; }
+.record-hours { font-weight: 700; color: #1a73e8; font-size: 14px; }
+.delete-btn {
+  background: none; border: none;
+  color: #e53935; font-size: 18px;
+  cursor: pointer; padding: 4px 8px;
+}
+
+/* 底部按钮组 */
+.action-bar {
+  margin: 16px 20px 32px;
+  display: flex; gap: 12px;
+}
+.action-btn {
+  flex: 1;
+  padding: 14px 12px;
+  border: 2px solid #1a73e8;
+  border-radius: 12px;
+  background: #fff;
+  color: #1a73e8;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
+.action-btn.primary {
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  border-color: transparent;
+}
+.action-btn:active { transform: scale(0.97); }
+
+/* 周汇总 */
+.week-summary {
+  margin: 0 20px 16px;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.week-summary .label { font-size: 13px; opacity: 0.9; }
+.week-summary .value { font-size: 22px; font-weight: 800; }
+
+/* toast */
+.toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  background: #333; color: #fff; padding: 12px 24px;
+  border-radius: 12px; font-size: 14px; font-weight: 600;
+  opacity: 0; transition: 0.3s; pointer-events: none; z-index: 100;
+}
+.toast.show { opacity: 1; }
+
+/* 弹窗 */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  z-index: 50; display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: #fff; border-radius: 20px; padding: 24px;
+  width: 90%; max-width: 360px;
+}
+.modal h3 { font-size: 18px; margin-bottom: 16px; }
+.modal input {
+  width: 100%; padding: 12px 14px;
+  border: 2px solid #e0e0e0; border-radius: 10px;
+  font-size: 16px; margin-bottom: 16px;
+}
+.modal-btns { display: flex; gap: 12px; }
+.modal-btns button {
+  flex: 1; padding: 12px; border-radius: 10px;
+  font-size: 15px; font-weight: 600; cursor: pointer;
+}
+.modal-cancel { background: #f0f0f0; border: none; color: #666; }
+.modal-confirm { background: #1a73e8; border: none; color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⏱️ Arbeitszeiterfassung</h1>
+  <p id="headerSub">Wird geladen...</p>
+</div>
+
+<div class="worker-bar" id="workerBar">
+  <button class="add-worker" onclick="showAddWorker()">+</button>
+</div>
+
+<div class="week-summary">
+  <div>
+    <div class="label">Diese Woche</div>
+    <div class="value" id="weekHours">0 Std.</div>
+  </div>
+  <div style="text-align:right">
+    <div class="label">Dieser Monat</div>
+    <div class="value" id="monthHours">0 Std.</div>
+  </div>
+</div>
+
+<div class="form-card">
+  <h2>📝 Arbeitszeit eintragen</h2>
+  <div class="field">
+    <label>Datum</label>
+    <input type="date" id="workDate" />
+  </div>
+  <div class="field">
+    <label>Schichtbeginn</label>
+    <input type="time" id="startTime" />
+    <div class="quick-times">
+      <button class="quick-btn" onclick="setTime('startTime','12:00')">12:00</button>
+      <button class="quick-btn" onclick="setTime('startTime','13:00')">13:00</button>
+      <button class="quick-btn" onclick="setTime('startTime','17:00')">17:00</button>
+    </div>
+  </div>
+  <div class="field">
+    <label>Schichtende</label>
+    <input type="time" id="endTime" />
+    <div class="quick-times">
+      <button class="quick-btn" onclick="setTime('endTime','21:00')">21:00</button>
+      <button class="quick-btn" onclick="setTime('endTime','22:00')">22:00</button>
+      <button class="quick-btn" onclick="setTime('endTime','21:30')">21:30</button>
+    </div>
+  </div>
+  <div class="field">
+    <label>Pause (Minuten)</label>
+    <input type="number" id="breakMin" placeholder="Standard 120 Min = 2 Std." value="120" />
+    <div class="quick-times">
+      <button class="quick-btn" onclick="setBreak(120)">2 Std.</button>
+      <button class="quick-btn" onclick="setBreak(90)">1,5 Std.</button>
+      <button class="quick-btn" onclick="setBreak(30)">0,5 Std.</button>
+    </div>
+  </div>
+  <div class="field">
+    <label>Stundenlohn (€/Std.)</label>
+    <input type="number" id="hourlyRate" value="15" step="0.5" />
+  </div>
+  <button class="save-btn" onclick="saveRecord()">💾 Eintrag speichern</button>
+</div>
+
+<div class="records-section">
+  <div class="records-header">
+    <h2>📋 Letzte Einträge</h2>
+    <span onclick="clearRecords()" style="cursor:pointer">Alle löschen</span>
+  </div>
+  <div id="recordsList"><p style="color:#999;text-align:center;padding:20px;">Noch keine Einträge</p></div>
+</div>
+
+<div class="action-bar">
+  <button class="action-btn" onclick="exportWeek()">📊 Woche Excel</button>
+  <button class="action-btn" onclick="addTestData()">🧪 Testdaten</button>
+  <button class="action-btn primary" onclick="exportAll()">📥 Alles exportieren</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3>Mitarbeiter hinzufügen</h3>
+    <input type="text" id="newWorkerName" placeholder="Name eingeben" />
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="hideAddWorker()">Abbrechen</button>
+      <button class="modal-confirm" onclick="addWorker()">Bestätigen</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+// ============ 数据层 ============
+const STORAGE_KEY = 'workTimeRecords';
+const WORKERS_KEY = 'workTimeWorkers';
+const ACTIVE_WORKER_KEY = 'workTimeActiveWorker';
+
+function getWorkers() {
+  return JSON.parse(localStorage.getItem(WORKERS_KEY) || '["Lin Xinyi","Zhang San","Li Si"]');
+}
+function saveWorkers(w) { localStorage.setItem(WORKERS_KEY, JSON.stringify(w)); }
+
+function getActiveWorker() {
+  return localStorage.getItem(ACTIVE_WORKER_KEY) || getWorkers()[0];
+}
+function setActiveWorker(w) { localStorage.setItem(ACTIVE_WORKER_KEY, w); }
+
+function getRecords(worker) {
+  const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  return all[worker] || [];
+}
+function saveRecords(worker, records) {
+  const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  all[worker] = records;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+}
+
+// ============ 渲染 ============
+function renderWorkers() {
+  const bar = document.getElementById('workerBar');
+  const workers = getWorkers();
+  const active = getActiveWorker();
+  bar.innerHTML = '';
+  workers.forEach(w => {
+    const btn = document.createElement('button');
+    btn.className = 'worker-btn' + (w === active ? ' active' : '');
+    btn.innerHTML = `
+      <span onclick="setActiveWorker('${w}'); initPage();">${w}</span>
+      <span class="delete-worker" onclick="event.stopPropagation(); deleteWorker('${w}')">✕</span>
+    `;
+    btn.onclick = () => { setActiveWorker(w); initPage(); };
+    bar.appendChild(btn);
+  });
+  const addBtn = document.createElement('button');
+  addBtn.className = 'add-worker';
+  addBtn.textContent = '+';
+  addBtn.onclick = showAddWorker;
+  bar.appendChild(addBtn);
+}
+
+function renderRecords() {
+  const worker = getActiveWorker();
+  const records = getRecords(worker);
+  const list = document.getElementById('recordsList');
+  document.getElementById('headerSub').textContent = `Aktueller Mitarbeiter: ${worker}`;
+
+  if (records.length === 0) {
+    list.innerHTML = '<p style="color:#999;text-align:center;padding:20px;">Noch keine Einträge</p>';
+    return;
+  }
+
+  // 按日期倒序，显示最近20条
+  const sorted = [...records].sort((a,b) => b.date.localeCompare(a.date));
+  const recent = sorted.slice(0, 20);
+
+  list.innerHTML = recent.map((r, i) => `
+    <div class="record-item">
+      <div>
+        <div class="record-date">${r.date}</div>
+        <div class="record-time">${r.start} - ${r.end} (Pause ${r.breakHour}h)</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div class="record-hours">${r.hours.toFixed(1)}h</div>
+        <button class="delete-btn" onclick="deleteRecord(${i})">✕</button>
+      </div>
+    </div>
+  `).join('');
+
+  updateSummary();
+}
+
+function updateSummary() {
+  const worker = getActiveWorker();
+  const records = getRecords(worker);
+  const now = new Date();
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() - now.getDay() + 1); // Monday
+  const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+
+  let weekH = 0, monthH = 0;
+  records.forEach(r => {
+    const d = new Date(r.date);
+    if (d >= weekStart) weekH += r.hours;
+    if (d >= monthStart) monthH += r.hours;
+  });
+  document.getElementById('weekHours').textContent = weekH.toFixed(1) + ' Std.';
+  document.getElementById('monthHours').textContent = monthH.toFixed(1) + ' Std.';
+}
+
+// ============ 操作 ============
+function setTime(id, val) { document.getElementById(id).value = val; }
+function setBreak(min) { document.getElementById('breakMin').value = min; }
+
+function saveRecord() {
+  const worker = getActiveWorker();
+  const date = document.getElementById('workDate').value;
+  const start = document.getElementById('startTime').value;
+  const end = document.getElementById('endTime').value;
+  const breakMin = parseFloat(document.getElementById('breakMin').value) || 0;
+  const rate = parseFloat(document.getElementById('hourlyRate').value) || 15;
+
+  if (!date || !start || !end) { showToast('Bitte alle Felder ausfüllen'); return; }
+
+  const [sh, sm] = start.split(':').map(Number);
+  const [eh, em] = end.split(':').map(Number);
+  let diff = (eh * 60 + em) - (sh * 60 + sm);
+  if (diff < 0) diff += 24 * 60; // 跨午夜
+  const hours = Math.max(0, (diff - breakMin) / 60);
+
+  const records = getRecords(worker);
+  records.push({ date, start, end, breakMin, breakHour: breakMin/60, hours, rate, wage: hours * rate });
+  saveRecords(worker, records);
+
+  showToast('✅ Gespeichert!');
+  renderRecords();
+}
+
+function deleteRecord(idx) {
+  const worker = getActiveWorker();
+  const records = getRecords(worker);
+  const sorted = [...records].sort((a,b) => b.date.localeCompare(a.date));
+  sorted.splice(idx, 1);
+  saveRecords(worker, sorted);
+  renderRecords();
+}
+
+function clearRecords() {
+  if (!confirm('Alle Einträge dieses Mitarbeiters löschen?')) return;
+  saveRecords(getActiveWorker(), []);
+  renderRecords();
+}
+
+// ============ 导出 Excel ============
+function exportWeek() {
+  const worker = getActiveWorker();
+  const records = getRecords(worker);
+  const now = new Date();
+  const weekStart = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+  const weekRecords = records.filter(r => new Date(r.date) >= weekStart);
+  exportToExcel(worker, weekRecords, `Woche_${worker}`);
+}
+
+function exportAll() {
+  const worker = getActiveWorker();
+  const records = getRecords(worker);
+  exportToExcel(worker, records, `Alle_${worker}`);
+}
+
+function exportToExcel(worker, records, filename) {
+  if (!records.length) { showToast('Keine Daten zum Exportieren'); return; }
+
+  const sorted = [...records].sort((a,b) => a.date.localeCompare(b.date));
+  
+  // 月份德文名称映射
+  const monthNames = ['', 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+  
+  // 生成Excel数据
+  const wsData = [
+    ['Monat', 'Datum', 'Schichtbeginn', 'Schichtende', 'Pause', 'Arbeitszeit', 'Stundenlohn (€/h)', 'Tageslohn (€)', 'Gesamt (€)'],
+    ['', '', '', '', '', '', sorted[0]?.rate || 15, '', ''],  // 第2行：时薪
+  ];
+  
+  // 数据行
+  sorted.forEach((r, i) => {
+    const date = new Date(r.date);
+    const day = date.getDate().toString().padStart(2, '0') + '.';
+    const month = monthNames[date.getMonth() + 1] + ' ' + date.getFullYear();
+    const pauseStr = (r.breakMin / 60).toFixed(2).replace('.', ':');
+    const workHours = r.hours.toFixed(2);
+    const rowNum = i + 3; // 数据从第3行开始
+    
+    wsData.push([
+      month,
+      day,
+      r.start,
+      r.end,
+      pauseStr,
+      workHours,
+      '',  // 空着，由公式计算
+      `=${rowNum}F*${rowNum}G`,  // 工作时间 × 时薪
+      ''   // 空着
+    ]);
+  });
+  
+  // 汇总行
+  const dataRowCount = sorted.length;
+  const lastDataRow = dataRowCount + 2; // 2 = header(1) + rate(1)
+  wsData.push([
+    'GESAMT',
+    '',
+    '',
+    '',
+    '',
+    `=SUM(F3:F${lastDataRow})`,
+    '',
+    `=SUM(H3:H${lastDataRow})`,
+    ''
+  ]);
+
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(wsData);
+
+  // 设置列宽
+  ws['!cols'] = [
+    {wch: 15}, {wch: 8}, {wch: 12}, {wch: 12}, {wch: 8}, {wch: 12}, {wch: 16}, {wch: 14}, {wch: 12}
+  ];
+
+  XLSX.utils.book_append_sheet(wb, ws, 'Arbeitszeit');
+  XLSX.writeFile(wb, `${filename}.xlsx`);
+  showToast('✅ Excel erstellt!');
+}
+
+function deleteWorker(name) {
+  if (!confirm(`Mitarbeiter "${name}" wirklich löschen?`)) return;
+  const workers = getWorkers();
+  const newWorkers = workers.filter(w => w !== name);
+  saveWorkers(newWorkers);
+  
+  // 删除该工人的所有记录
+  const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  delete all[name];
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  
+  // 如果删除的是当前工人，切换到第一个
+  if (getActiveWorker() === name) {
+    setActiveWorker(newWorkers[0] || '');
+  }
+  
+  showToast('✅ Gelöscht!');
+  initPage();
+}
+
+// ============ 工人管理 ============
+function showAddWorker() {
+  document.getElementById('modalOverlay').classList.add('show');
+  document.getElementById('newWorkerName').value = '';
+  document.getElementById('newWorkerName').focus();
+}
+function hideAddWorker() { document.getElementById('modalOverlay').classList.remove('show'); }
+function addWorker() {
+  const name = document.getElementById('newWorkerName').value.trim();
+  if (!name) return;
+  const workers = getWorkers();
+  if (workers.includes(name)) { showToast('Mitarbeiter existiert bereits'); return; }
+  workers.push(name);
+  saveWorkers(workers);
+  setActiveWorker(name);
+  hideAddWorker();
+  initPage();
+}
+
+// ============ 工具 ============
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function initPage() {
+  // 默认日期为今天
+  if (!document.getElementById('workDate').value) {
+    document.getElementById('workDate').value = new Date().toISOString().slice(0,10);
+  }
+  renderWorkers();
+  renderRecords();
+  
+  // 检查是否有数据，如果没有显示提示
+  const worker = getActiveWorker();
+  const records = getRecords(worker);
+  if (records.length === 0) {
+    showToast('⚠️ Keine Daten - bitte zuerst speichern!');
+  }
+}
+
+// 添加测试数据（方便测试）
+function addTestData() {
+  const worker = getActiveWorker();
+  const records = getRecords(worker);
+  
+  const today = new Date();
+  const testRecords = [];
+  
+  for (let i = 0; i < 5; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() - i);
+    testRecords.push({
+      date: date.toISOString().slice(0,10),
+      start: '12:00',
+      end: '21:00',
+      breakMin: 120,
+      breakHour: 2,
+      hours: 7,
+      rate: 15,
+      wage: 105
+    });
+  }
+  
+  saveRecords(worker, testRecords);
+  showToast('✅ Testdaten hinzugefügt!');
+  renderRecords();
+}
+
+initPage();
+</script>
+</body>
+</html>
