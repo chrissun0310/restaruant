@@ -29,6 +29,32 @@
         </div>
         <a href="./deutsch-a1.html">进入学习</a>
       </section>
+      <section class="qr-stats" id="qrStats" aria-label="QR 访问统计" hidden>
+        <span>访问统计</span>
+        <strong><b id="qrTotalVisits">0</b> 次扫码</strong>
+        <p>今日 <b id="qrTodayVisits">0</b> 次 · 不同 IP <b id="qrUniqueIps">0</b> 个</p>
+      </section>
     </main>
+    <script>
+      if (location.protocol === "https:" || location.protocol === "http:") {
+        const statsBox = document.querySelector("#qrStats");
+        fetch("/api/qr-track", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ page: "qr.html" }),
+          keepalive: true,
+        })
+          .then(() => fetch("/api/qr-track"))
+          .then((response) => response.json())
+          .then((stats) => {
+            if (!stats.configured) return;
+            document.querySelector("#qrTotalVisits").textContent = stats.totalVisits || 0;
+            document.querySelector("#qrTodayVisits").textContent = stats.todayVisits || 0;
+            document.querySelector("#qrUniqueIps").textContent = stats.uniqueIps || 0;
+            statsBox.hidden = false;
+          })
+          .catch(() => {});
+      }
+    </script>
   </body>
 </html>
