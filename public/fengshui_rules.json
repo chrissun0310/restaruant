@@ -1,0 +1,3928 @@
+[
+  {
+    "id": "luantou_bedroom_001",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "床头有实墙可靠",
+    "detection_hint": "识别床头紧贴完整墙面，后方不是窗、门、空柜或通道。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "峦头派强调坐卧位置宜有靠，家居布局上也能提升稳定感。",
+    "recommendation": "保持床头靠实墙，床头两侧尽量留出均衡通道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bedHeadAgainstWall"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_002",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "床头悬空或后方为通道",
+    "detection_hint": "识别床头后方无墙、为空位、走道或开放区域。",
+    "direction_required": "any",
+    "severity": "high",
+    "score_change": -18,
+    "principle": "床头无靠在传统风水中被视为不稳，居住体验上也缺少安全感。",
+    "recommendation": "调整床位，使床头靠完整实墙；若无法移动，可用厚实床头板和矮柜增强支撑。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "!bedHeadAgainstWall"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_003",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "mirror",
+    "condition": "镜子正对床",
+    "detection_hint": "识别镜面法线朝向床面，或用户勾选镜子对床。",
+    "direction_required": "any",
+    "severity": "high",
+    "score_change": -18,
+    "principle": "镜面对床在峦头派中常被视为扰动睡眠，实际居住中也容易形成反光干扰。",
+    "recommendation": "移动镜子角度，改到衣柜内侧，或夜间用帘布遮挡。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "hasMirrorFacingBed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_004",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "beam",
+    "condition": "横梁位于床正上方",
+    "detection_hint": "识别床体上方有明显结构梁，或用户勾选横梁压床。",
+    "direction_required": "any",
+    "severity": "high",
+    "score_change": -18,
+    "principle": "横梁压顶属于典型形煞，容易造成压迫感。",
+    "recommendation": "优先移动床位；无法移动时可用吊顶、灯带或软装弱化梁体。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "beamAboveBed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_005",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "door",
+    "condition": "卧室门直冲床头或床身",
+    "detection_hint": "识别卧室门开启方向正对床头、床中或床尾。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "门直冲床会使动线与睡眠区相冲，传统风水认为气流不宜直扑床位。",
+    "recommendation": "调整床位避开门线，或用屏风、帘、床尾凳形成缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:facing_bed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_006",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "window",
+    "condition": "床头紧贴窗下",
+    "detection_hint": "识别床头位于窗户正下方或靠窗无墙。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "窗下气流、光线和噪音变化较大，传统布局认为不如实墙稳定。",
+    "recommendation": "将床头移至实墙；若受限，使用厚窗帘并加强床头板。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:under_window"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_007",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "window",
+    "condition": "床侧有适度自然光但不直晒床头",
+    "detection_hint": "识别卧室有窗，光线柔和，床头未被强光直射。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "卧室需要柔和采光与通风，过暗或过晒都不利于休息体验。",
+    "recommendation": "保持柔和窗帘和规律通风，避免强光直接照射枕位。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "roomIsBright",
+      "window:soft_light"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_008",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室杂物堆积在床边或门后",
+    "detection_hint": "识别地面、床侧、门后有大量杂物，或用户标记房间凌乱。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "峦头派重视气口和动线，杂物会造成阻滞与压迫。",
+    "recommendation": "清理床边、门后和通道，保留顺畅行走空间。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "roomIsCluttered"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_009",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室采光昏暗且通风不足",
+    "detection_hint": "识别画面亮度低、窗被遮挡，或用户未标记明亮。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "阴暗潮湿会削弱居住舒适度，传统风水也重视明堂与气口。",
+    "recommendation": "增加柔和照明，保持窗前无遮挡，并定期开窗通风。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "!roomIsBright"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_010",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "床尾正对镜面、电视或强反光面",
+    "detection_hint": "识别床尾方向有电视、玻璃柜门或大镜面。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "睡眠区应减少反光与刺激物，避免视觉干扰。",
+    "recommendation": "降低反光面存在感，睡前遮挡电视或调整角度。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:facing_reflective_surface"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_011",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "床位两侧通道均衡",
+    "detection_hint": "识别床左右两侧都有可通行空间，且非单侧完全贴墙。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "两侧均衡有利于使用便利，传统布局也讲究左右平衡。",
+    "recommendation": "保持床侧通道整洁，床头柜高度和体量尽量协调。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:balanced_sides"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_012",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "双人床一侧完全贴墙",
+    "detection_hint": "识别双人床一侧紧贴墙面且另一侧为通道。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "单侧贴墙会影响使用动线，传统上也视为左右不均。",
+    "recommendation": "尽量让床两侧留出小通道，或用窄柜、壁灯改善平衡。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:one_side_against_wall"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_013",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "door",
+    "condition": "卧室门与卫生间门相对",
+    "detection_hint": "识别卧室门线与卫生间门线正对。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "门对门会形成直线气流，卫生间湿气也不宜直入卧室。",
+    "recommendation": "保持卫生间门关闭，增加门帘或绿植缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "doorFacingToilet"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_014",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "toilet",
+    "condition": "床头或床侧紧邻卫生间墙",
+    "detection_hint": "识别床头墙背后为卫生间或马桶区域。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "传统风水认为睡眠区不宜紧贴湿气重的位置。",
+    "recommendation": "调整床头方向，或加强墙体隔音、防潮与通风。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:against_bathroom_wall"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_015",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "light",
+    "condition": "卧室主灯正压床中",
+    "detection_hint": "识别大型吊灯位于床正中上方。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "床上方重物或强灯会形成压迫感。",
+    "recommendation": "改用吸顶灯、床头灯或间接照明，避免大型吊灯压床。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "light:above_bed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_016",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室家具尖角直冲床",
+    "detection_hint": "识别柜角、桌角、墙角尖角指向床位。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "尖角直冲属于峦头形煞，视觉上也会造成紧张感。",
+    "recommendation": "用圆角家具、软包、植物或调整家具角度缓和。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "sharp_corner:facing_bed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_017",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "plant",
+    "condition": "卧室摆放少量圆叶植物且不靠床头",
+    "detection_hint": "识别一到两盆小型圆叶植物，远离枕边。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "植物可柔化空间，但卧室不宜过量或贴近睡眠区。",
+    "recommendation": "保留少量易养护植物，避免大型或带刺植物靠近床。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:small_round_leaf"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_018",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "plant",
+    "condition": "卧室大型植物过多",
+    "detection_hint": "识别卧室有多盆大型植物或植物遮挡动线。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "卧室重静，过多植物会增加维护压力和空间压迫。",
+    "recommendation": "减少大型植物数量，保留一两处清爽点缀即可。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:too_many_bedroom"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_019",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "aquarium",
+    "condition": "卧室摆放鱼缸或大型水景",
+    "detection_hint": "识别卧室内有鱼缸、流水摆件或大型加湿水景。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "五行水景动性较强，传统上不建议放在睡眠区。",
+    "recommendation": "将鱼缸移至客厅等公共空间，卧室以安静稳定为主。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "aquarium:in_bedroom"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_020",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室门口无遮挡且通道顺畅",
+    "detection_hint": "识别卧室门开启范围内无杂物，床不占门口动线。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "入口顺畅有助于气流与生活动线自然进入。",
+    "recommendation": "保持门口和床边通道干净，避免临时堆放衣物箱包。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:clear"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_021",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "window",
+    "condition": "卧室窗户被柜体或杂物遮挡",
+    "detection_hint": "识别窗前被高柜、杂物或厚重物品遮住。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "窗为采光通风口，遮挡会削弱空间明亮度。",
+    "recommendation": "清理窗前遮挡，保留可开合和采光面积。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "window:blocked"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_022",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室形状方正",
+    "detection_hint": "识别卧室轮廓接近矩形或方形，无明显缺角和狭长压迫。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "方正空间便于家具稳定布置，传统峦头也重视格局平衡。",
+    "recommendation": "保持主家具沿墙布置，避免人为制造过多斜角。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:regular_shape"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_023",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室狭长且床位被通道夹住",
+    "detection_hint": "识别房间长宽比过大，床两侧为明显穿行动线。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "狭长格局容易形成直线气流，睡眠区稳定性较弱。",
+    "recommendation": "用柜体、地毯或帘体分区，避免床处于主要通道中。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:narrow_long"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_024",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "desk",
+    "condition": "卧室书桌背门而坐",
+    "detection_hint": "识别书桌座椅背后为门或主要通道。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "背门而坐缺少靠山感，工作学习时容易分心。",
+    "recommendation": "调整座位使背后有墙，或在背后设置矮柜。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:back_to_door"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_025",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "desk",
+    "condition": "卧室书桌有靠且前方开阔",
+    "detection_hint": "识别书桌座位背后为墙，前方无压迫遮挡。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "坐有靠、前方开阔是峦头派常用的工作位原则。",
+    "recommendation": "保持桌前明亮整洁，避免背后走道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:back_against_wall"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_026",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "mirror",
+    "condition": "镜子位于衣柜内或不直照床门",
+    "detection_hint": "识别镜面收纳在柜门内侧，或角度不对床不对门。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "镜面可用但宜避开睡眠和入口直线。",
+    "recommendation": "保持镜面功能性，使用后可关闭柜门。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "mirror:not_facing_bed_or_door"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_027",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "床下长期堆满杂物",
+    "detection_hint": "识别床底可见大量箱包、杂物或灰尘堆积。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "床下为睡眠区下方，杂物会影响清洁和空气流动。",
+    "recommendation": "减少床下收纳，至少保持通风和定期清洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:clutter_under"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_028",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "door",
+    "condition": "床尾正对卧室门",
+    "detection_hint": "识别床尾与卧室门在同一直线。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "传统上称床尾冲门，家居动线上也缺少缓冲。",
+    "recommendation": "调整床位斜避门线，或在门与床之间加软性遮挡。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed_foot:facing_door"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_029",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "window",
+    "condition": "床位夹在两扇窗之间",
+    "detection_hint": "识别床头或床身位于两窗之间，形成穿堂气流。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "两窗对流可能造成气流过强，睡眠区宜稳定。",
+    "recommendation": "调整床位，或使用窗帘控制风口强度。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:between_windows"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_030",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "light",
+    "condition": "卧室使用柔和暖光",
+    "detection_hint": "识别灯光色温偏暖，非刺眼白光。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "卧室宜静，暖光更适合休息氛围。",
+    "recommendation": "保留分层照明，睡前使用低亮度灯源。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "light:warm"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_031",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "light",
+    "condition": "卧室强白光直照床面",
+    "detection_hint": "识别冷白强光照射床面或枕位。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "强光会削弱卧室安定感，也不利于入睡体验。",
+    "recommendation": "改用暖白光和间接照明，床头灯亮度可调。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "light:harsh_white"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_032",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "床头上方悬挂重画或重柜",
+    "detection_hint": "识别床头墙上有大型重画、吊柜或悬挂重物。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "头部上方重物会形成心理压迫和安全隐患。",
+    "recommendation": "移除重物，改用轻薄装饰或低位软包。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "heavy_object:above_bed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_033",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室色彩过于强烈刺眼",
+    "detection_hint": "识别大面积高饱和红、黑或强对比颜色。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "卧室重休息，强刺激色彩不宜大面积使用。",
+    "recommendation": "改用低饱和暖色、木色或柔和中性色。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "color:too_strong_bedroom"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_034",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室色彩柔和统一",
+    "detection_hint": "识别床品、墙面、窗帘色彩柔和协调。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "柔和统一的色彩有助于稳定休息氛围。",
+    "recommendation": "可用少量暖色点缀，避免过多冲突色。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "color:soft_bedroom"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_035",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "床头朝向与罗盘记录一致且用户明确填写",
+    "detection_hint": "读取用户填写床头朝向，并能与罗盘方向对应。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "明确方向有助于后续结合八宅和命卦做更细判断。",
+    "recommendation": "保留床头朝向记录，后续可加入个人命卦匹配。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:facing_known"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_036",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室正对长走廊尽头",
+    "detection_hint": "识别卧室门外为长走廊直冲。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "长走廊形成直线动势，传统峦头认为不宜直冲卧室门。",
+    "recommendation": "在走廊尽头或卧室门内增加柔和照明、地毯或帘体缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "corridor:facing_bedroom_door"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_037",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "door",
+    "condition": "卧室门能完整开启且不被家具阻挡",
+    "detection_hint": "识别门扇开启范围内没有柜体、床或杂物阻碍。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "门为气口，完整开启也有利于日常使用和安全。",
+    "recommendation": "保持门后清爽，不把衣物或箱包堆在门口。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:fully_open"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_038",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "door",
+    "condition": "卧室门后堆放杂物",
+    "detection_hint": "识别卧室门后挂满杂物或堆放箱包。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "门后杂物会影响气口和开合动线。",
+    "recommendation": "清理门后空间，常用衣物改用封闭收纳。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:blocked_by_clutter"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_039",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "床与衣柜距离过近形成压迫",
+    "detection_hint": "识别床侧与高柜距离很近，通道狭窄。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "高柜靠床过近会形成压迫感。",
+    "recommendation": "调整柜门开启方向或床位，保留舒适通道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "wardrobe:pressing_bed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_040",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室内尖锐金属装饰过多",
+    "detection_hint": "识别大量刀剑形、尖锐金属装饰靠近床。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "睡眠区宜柔和，尖锐装饰会增强紧张感。",
+    "recommendation": "减少尖锐装饰，改用圆润材质和织物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "metal_sharp:bedroom"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_041",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "window",
+    "condition": "床不被空调风口直吹",
+    "detection_hint": "识别空调出风口未正对床头或床身。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "睡眠区避免强风直吹，传统风水也重视气流柔和。",
+    "recommendation": "保持出风口避开枕位，使用导风板或调整风向。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "airflow:not_direct_to_bed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_042",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "window",
+    "condition": "空调或风口直吹床头",
+    "detection_hint": "识别空调、风扇或风口直接对床头。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "强风直吹会造成气流不稳和身体不适感。",
+    "recommendation": "调整风向或床位，避免直吹头部和胸腹。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "airflow:direct_to_bed"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_043",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "儿童卧室床远离窗台和尖角",
+    "detection_hint": "识别儿童床不贴高窗、不被柜角或桌角直冲。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "儿童房更需要安全边界和柔和动线。",
+    "recommendation": "保持床边低矮安全，避免高柜压迫。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "child_bed:safe_position"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_044",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室内卫生间门长期敞开",
+    "detection_hint": "识别套间卫生间门开向床且处于打开状态。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "卫生间湿气重，门长期敞开会影响卧室空气质量。",
+    "recommendation": "保持门关闭，加强排风，并用门帘或绿植缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bathroom_door:open_to_bedroom"
+    ]
+  },
+  {
+    "id": "bazhai_bedroom_045",
+    "school": "八宅",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "卧室床位落在生气、天医、延年或伏位参考方，属于八宅派中较稳妥的坐卧方。",
+    "detection_hint": "读取用户填写或罗盘记录的床方位，判断是否为东方。",
+    "direction_required": "east",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "八宅派以生气、天医、延年、伏位作为较稳定的吉方参考，仍需结合峦头形势。",
+    "recommendation": "若与宅命或使用者命卦匹配，可优先作为门、床、桌等重要位置参考，同时保持形势整洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:east",
+      "bed:direction_check"
+    ]
+  },
+  {
+    "id": "bazhai_bedroom_046",
+    "school": "八宅",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "卧室床位落在绝命、五鬼、六煞或祸害参考方，需要结合峦头进一步校正。",
+    "detection_hint": "读取用户填写或罗盘记录的床方位，判断是否为西方。",
+    "direction_required": "west",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "八宅派以绝命、五鬼、六煞、祸害作为需谨慎处理的方位参考，实际应用不可脱离户型和使用功能。",
+    "recommendation": "若重要门、床、桌落在该类方位，可先用整洁、遮挡、换位和功能弱化处理，后续再结合命卦精算。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:west",
+      "bed:direction_check"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_047",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室有清晰睡眠区和收纳区",
+    "detection_hint": "识别床、柜、书桌分区明确，动线不交叉。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "功能分区清晰可减少杂乱与压迫。",
+    "recommendation": "维持睡眠区简洁，收纳区集中处理。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:zoned_bedroom"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_048",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室功能混杂且物品外露过多",
+    "detection_hint": "识别运动器械、办公杂物、衣物与床混杂。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "卧室功能过杂会削弱休息属性。",
+    "recommendation": "减少非睡眠功能物品，办公区可用屏风或柜体分隔。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:mixed_clutter_bedroom"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_049",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "bed",
+    "condition": "床头避开西晒强窗",
+    "detection_hint": "识别床头位于强西晒窗下或强光热源附近。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "强烈西晒会带来热感和光线刺激。",
+    "recommendation": "使用遮光帘，或将床头移至较稳定墙面。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:west_sun_exposure"
+    ]
+  },
+  {
+    "id": "luantou_living_room_001",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "sofa",
+    "condition": "沙发背后有实墙或稳定柜体",
+    "detection_hint": "识别沙发背面靠墙或靠低柜，不背窗不背门。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "客厅主座宜有靠，实际使用也更稳定舒适。",
+    "recommendation": "保持沙发背后稳定，避免背后成为主要走道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "sofaAgainstWall"
+    ]
+  },
+  {
+    "id": "luantou_living_room_002",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "sofa",
+    "condition": "沙发背后为空或为走道",
+    "detection_hint": "识别沙发后方为通道、窗或开放空间，或用户未勾选沙发靠墙。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "主座无靠会削弱稳定感，客厅聚气也较弱。",
+    "recommendation": "调整沙发靠墙；无法靠墙时可加矮柜或屏风。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "!sofaAgainstWall"
+    ]
+  },
+  {
+    "id": "luantou_living_room_003",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "door",
+    "condition": "大门直冲客厅窗形成穿堂",
+    "detection_hint": "识别入口门与窗户成直线，无遮挡。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "穿堂格局使气流过快，家居上也难以形成停留感。",
+    "recommendation": "在玄关或客厅中段增加柜体、屏风、地毯或绿植缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door_window:through_living"
+    ]
+  },
+  {
+    "id": "luantou_living_room_004",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "window",
+    "condition": "客厅明亮通风且窗前无遮挡",
+    "detection_hint": "识别客厅亮度充足，窗前无高柜和杂物。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "客厅为公共明堂，明亮开阔是峦头派重视的基础。",
+    "recommendation": "保持窗前清爽，使用透光窗帘调节光线。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "roomIsBright",
+      "window:clear"
+    ]
+  },
+  {
+    "id": "luantou_living_room_005",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅采光差且杂物多",
+    "detection_hint": "识别客厅昏暗、地面或茶几堆放杂物。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "客厅宜明亮整洁，杂乱会影响动线和聚气。",
+    "recommendation": "增加照明，清理茶几和入口动线。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "!roomIsBright",
+      "roomIsCluttered"
+    ]
+  },
+  {
+    "id": "luantou_living_room_006",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅中心留有活动空间",
+    "detection_hint": "识别茶几、沙发、电视柜之间留有顺畅通道。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "中心区域开阔有助于明堂感和家庭活动。",
+    "recommendation": "保持中心区域少堆物，家具尺度与空间匹配。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:open_center"
+    ]
+  },
+  {
+    "id": "luantou_living_room_007",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅中心被大型杂物占满",
+    "detection_hint": "识别客厅中央堆放箱子、大型器械或多余家具。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "中心受阻会让动线不畅，也削弱开阔感。",
+    "recommendation": "移走中央杂物，保留主要家具和通道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:center_blocked"
+    ]
+  },
+  {
+    "id": "luantou_living_room_008",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "mirror",
+    "condition": "客厅镜子正对大门",
+    "detection_hint": "识别镜面位于入户正对面，反射大门。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "镜对大门在传统风水中常被视为反射入气，实际也易造成突兀视觉。",
+    "recommendation": "调整镜子到侧墙，避免正对入口。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "mirror:facing_door"
+    ]
+  },
+  {
+    "id": "luantou_living_room_009",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "plant",
+    "condition": "客厅摆放健康圆叶植物",
+    "detection_hint": "识别客厅有一到三盆健康圆叶植物，未阻挡通道。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "圆叶植物可柔化空间，五行上常作为木气点缀。",
+    "recommendation": "保持植物健康，避免枯黄和阻挡通道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:healthy_round_leaf"
+    ]
+  },
+  {
+    "id": "luantou_living_room_010",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "plant",
+    "condition": "客厅枯萎植物未清理",
+    "detection_hint": "识别植物枯黄、落叶或长期无人打理。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "枯萎植物在传统布局中不宜久放，视觉上也显衰败。",
+    "recommendation": "及时修剪或更换植物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:withered"
+    ]
+  },
+  {
+    "id": "luantou_living_room_011",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "aquarium",
+    "condition": "鱼缸摆在客厅且不压沙发背后",
+    "detection_hint": "识别鱼缸在客厅边侧，未位于沙发背后或卧室。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "水景动性强，宜放公共区域并保持清洁。",
+    "recommendation": "保持水质清洁，避免放在沙发背后或卧室。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "aquarium:living_side"
+    ]
+  },
+  {
+    "id": "luantou_living_room_012",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "aquarium",
+    "condition": "鱼缸放在沙发背后",
+    "detection_hint": "识别鱼缸或大型水景位于沙发靠背后方。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "传统上水在背后被视为靠山不稳，实际也有湿气和安全顾虑。",
+    "recommendation": "将鱼缸移至侧边稳定位置，沙发背后保持实墙或柜体。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "aquarium:behind_sofa"
+    ]
+  },
+  {
+    "id": "luantou_living_room_013",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "beam",
+    "condition": "横梁压沙发",
+    "detection_hint": "识别沙发正上方有结构梁。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "长期坐卧位上方有梁会形成压迫感。",
+    "recommendation": "移动沙发或用吊顶、灯槽弱化梁体。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "beam:above_sofa"
+    ]
+  },
+  {
+    "id": "luantou_living_room_014",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "电视柜与沙发距离合适",
+    "detection_hint": "识别电视与沙发距离不拥挤，通道顺畅。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "客厅家具比例协调，有利于使用舒适和动线。",
+    "recommendation": "保持电视墙简洁，避免两侧堆满杂物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:living_balanced"
+    ]
+  },
+  {
+    "id": "luantou_living_room_015",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "电视墙装饰尖锐或反光过多",
+    "detection_hint": "识别电视墙有大量镜面、尖角金属或强反光。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "反光和尖锐装饰会增加视觉刺激。",
+    "recommendation": "减少镜面和尖锐装饰，使用木质、织物或柔和灯光。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "tv_wall:reflective_sharp"
+    ]
+  },
+  {
+    "id": "luantou_living_room_016",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "door",
+    "condition": "客厅门口开阔无鞋物堆积",
+    "detection_hint": "识别客厅入口地面整洁，门可完整开启。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "入口为气口，开阔整洁有助于动线自然。",
+    "recommendation": "保持入口区域收纳清晰。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:clear"
+    ]
+  },
+  {
+    "id": "luantou_living_room_017",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "door",
+    "condition": "客厅入口被鞋柜或杂物压迫",
+    "detection_hint": "识别入客厅处狭窄、鞋物外露或柜体压迫。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "入口受阻会影响第一动线和明堂感。",
+    "recommendation": "降低柜体压迫，清理外露鞋物，增加照明。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:blocked"
+    ]
+  },
+  {
+    "id": "luantou_living_room_018",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "window",
+    "condition": "窗外尖角或道路直冲客厅窗",
+    "detection_hint": "识别窗外明显尖角、道路直线或对面建筑锐角。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "外部冲煞属峦头外局，室内可做缓冲处理。",
+    "recommendation": "使用窗帘、绿植或纱帘柔化视线，不宜夸大判断。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "window:external_sha"
+    ]
+  },
+  {
+    "id": "luantou_living_room_019",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅形状方正，家具沿边组织",
+    "detection_hint": "识别客厅接近方正，沙发茶几电视柜关系清晰。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "方正格局易形成稳定明堂。",
+    "recommendation": "保持主家具沿边布置，中心留白。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:regular_shape"
+    ]
+  },
+  {
+    "id": "luantou_living_room_020",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅缺角明显或斜角压迫",
+    "detection_hint": "识别客厅轮廓明显缺角、斜墙造成难用角落。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "缺角和斜角会降低使用效率，传统上也视为格局不平衡。",
+    "recommendation": "用柜体、灯光或植物整理斜角，使空间更方正。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:irregular_shape"
+    ]
+  },
+  {
+    "id": "luantou_living_room_021",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "stairs",
+    "condition": "楼梯正对客厅主座",
+    "detection_hint": "识别楼梯口直冲沙发或主要座位。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "楼梯动势较强，不宜直冲长期停留位。",
+    "recommendation": "调整沙发位置，或在楼梯与座位之间设置缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stairs:facing_sofa"
+    ]
+  },
+  {
+    "id": "luantou_living_room_022",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "corridor",
+    "condition": "长走廊直冲客厅沙发",
+    "detection_hint": "识别长直走廊末端对着沙发。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "长走廊形成较强直线动势。",
+    "recommendation": "用地毯、灯光、端景柜或绿植减缓直冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "corridor:facing_sofa"
+    ]
+  },
+  {
+    "id": "luantou_living_room_023",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "light",
+    "condition": "客厅有分层照明",
+    "detection_hint": "识别主灯、落地灯、灯带或局部灯组合。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "公共空间宜明亮而有层次，能改善明堂感。",
+    "recommendation": "保留分层照明，暗角用暖光补足。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "light:layered"
+    ]
+  },
+  {
+    "id": "luantou_living_room_024",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "light",
+    "condition": "客厅暗角明显",
+    "detection_hint": "识别角落长期昏暗，尤其入口或沙发旁。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "暗角会造成空间压抑和使用盲区。",
+    "recommendation": "增加落地灯、壁灯或反射光源。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "light:dark_corner"
+    ]
+  },
+  {
+    "id": "luantou_living_room_025",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "sofa",
+    "condition": "沙发不被门直冲",
+    "detection_hint": "识别沙发不在门口直线冲射上。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "主座避开门冲，有利于安定和隐私。",
+    "recommendation": "保持沙发与门之间有自然转折。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "sofa:not_facing_door"
+    ]
+  },
+  {
+    "id": "luantou_living_room_026",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "sofa",
+    "condition": "沙发正对大门且距离很近",
+    "detection_hint": "识别沙发与大门面对面且间距短。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "门口动线直冲主座，隐私与稳定感不足。",
+    "recommendation": "调整沙发方向或用矮柜、屏风缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "sofa:facing_door_close"
+    ]
+  },
+  {
+    "id": "luantou_living_room_027",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "茶几高度低于沙发扶手",
+    "detection_hint": "识别茶几高度适中，不高压沙发。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "家具高低有序，客厅使用更舒适。",
+    "recommendation": "保持茶几尺度轻盈，避免过大过高。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "coffee_table:proper_height"
+    ]
+  },
+  {
+    "id": "luantou_living_room_028",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "茶几尖角直冲座位",
+    "detection_hint": "识别方形尖角茶几角部指向沙发坐席。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "尖角直冲会带来视觉不适。",
+    "recommendation": "换圆角茶几或调整角度。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "coffee_table:sharp_to_sofa"
+    ]
+  },
+  {
+    "id": "luantou_living_room_029",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "window",
+    "condition": "客厅窗帘干净可开合",
+    "detection_hint": "识别窗帘整洁，窗户未被永久封闭。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "可调节光线和通风，利于气口管理。",
+    "recommendation": "保持窗帘清洁，白天适度打开引光。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "curtain:clean_adjustable"
+    ]
+  },
+  {
+    "id": "luantou_living_room_030",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "宠物用品或儿童用品有固定收纳区",
+    "detection_hint": "识别公共物品集中收纳，不散落主通道。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "收纳分区能减少杂乱和气口阻塞。",
+    "recommendation": "设置固定收纳篮或柜位。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "storage:zoned_living"
+    ]
+  },
+  {
+    "id": "luantou_living_room_031",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅动线被低矮杂物绊挡",
+    "detection_hint": "识别地面电线、箱包、玩具阻挡通道。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "动线受阻影响日常安全和气流顺畅。",
+    "recommendation": "清理地面障碍，电线沿墙整理。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "layout:floor_obstacles"
+    ]
+  },
+  {
+    "id": "luantou_living_room_032",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "door",
+    "condition": "客厅与阳台之间通道顺畅",
+    "detection_hint": "识别客厅到阳台路径无遮挡。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "阳台常为采光通风口，通道顺畅利于明堂。",
+    "recommendation": "保持阳台门附近清爽。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "balcony:path_clear"
+    ]
+  },
+  {
+    "id": "luantou_living_room_033",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "window",
+    "condition": "阳台堆满杂物遮挡客厅采光",
+    "detection_hint": "识别阳台箱包杂物遮挡窗门。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "阳台堵塞会影响采光通风。",
+    "recommendation": "清理阳台杂物，保留采光面和通风口。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "balcony:cluttered"
+    ]
+  },
+  {
+    "id": "luantou_living_room_034",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅主位视野开阔",
+    "detection_hint": "识别坐在沙发处前方无遮挡，能看到入口侧向。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "主位前方开阔符合明堂原则。",
+    "recommendation": "保持沙发前方简洁，避免高柜压前。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "sofa:view_open"
+    ]
+  },
+  {
+    "id": "bazhai_living_room_035",
+    "school": "八宅",
+    "category": "living_room",
+    "object": "door",
+    "condition": "客厅主入口位于生气或延年参考方，传统八宅派认为利于公共空间纳气。",
+    "detection_hint": "读取用户填写或罗盘记录的门方位，判断是否为东南方。",
+    "direction_required": "southeast",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "八宅派以生气、天医、延年、伏位作为较稳定的吉方参考，仍需结合峦头形势。",
+    "recommendation": "若与宅命或使用者命卦匹配，可优先作为门、床、桌等重要位置参考，同时保持形势整洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:southeast",
+      "door:direction_check"
+    ]
+  },
+  {
+    "id": "bazhai_living_room_036",
+    "school": "八宅",
+    "category": "living_room",
+    "object": "door",
+    "condition": "客厅主入口位于五鬼或祸害参考方，传统八宅派建议谨慎处理气口。",
+    "detection_hint": "读取用户填写或罗盘记录的门方位，判断是否为西北方。",
+    "direction_required": "northwest",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "八宅派以绝命、五鬼、六煞、祸害作为需谨慎处理的方位参考，实际应用不可脱离户型和使用功能。",
+    "recommendation": "若重要门、床、桌落在该类方位，可先用整洁、遮挡、换位和功能弱化处理，后续再结合命卦精算。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:northwest",
+      "door:direction_check"
+    ]
+  },
+  {
+    "id": "luantou_living_room_037",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅墙面挂画内容过于尖锐压抑",
+    "detection_hint": "识别暴烈、尖锐或压迫性图像正对座位。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "长期停留区宜用平和画面。",
+    "recommendation": "换成山水、植物或抽象柔和画面。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "art:aggressive_facing_sofa"
+    ]
+  },
+  {
+    "id": "luantou_living_room_038",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅没有明显财位但入门斜对角整洁",
+    "detection_hint": "识别入门斜对角区域干净明亮。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "传统常以入门斜对角作基础财位参考，宜整洁稳定。",
+    "recommendation": "可放稳重柜体或圆叶植物，避免堆杂物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "wealth_corner:clear"
+    ]
+  },
+  {
+    "id": "luantou_living_room_039",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "入门斜对角堆放杂物或垃圾桶",
+    "detection_hint": "识别入门斜对角区域杂乱、垃圾桶或破损物。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "传统财位参考点宜干净稳定。",
+    "recommendation": "清理该区域，改用整洁收纳或健康植物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "wealth_corner:cluttered"
+    ]
+  },
+  {
+    "id": "luantou_living_room_040",
+    "school": "峦头",
+    "category": "living_room",
+    "object": "layout",
+    "condition": "客厅有稳定家庭交流区域",
+    "detection_hint": "识别座椅围合，便于交流，不全部背对。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "围合式布局有利于聚气和沟通。",
+    "recommendation": "保持座椅关系自然，避免所有座位散乱朝不同方向。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "seating:conversational"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_001",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶台背后有实墙",
+    "detection_hint": "识别灶台后方为完整墙面，非窗、门或开放通道。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "灶位宜稳，背后有靠也利于安全和操作。",
+    "recommendation": "保持灶后墙面整洁，避免背后开窗过大。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:back_against_wall"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_002",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶台背后为窗或无靠",
+    "detection_hint": "识别灶台后方为窗户、空位或开放区域。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "灶位无靠在传统中视为不稳，实际也可能受风影响。",
+    "recommendation": "调整灶位或加强挡风与墙面支撑。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:no_backing"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_003",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶台与水槽紧邻或相对",
+    "detection_hint": "识别灶台与水槽距离很近、相对，或用户勾选灶近水槽。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "五行中水火相克，厨房布局也应避免水火操作互相干扰。",
+    "recommendation": "灶与水槽之间留操作台，或用木质砧板、收纳区做缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stoveNearSink"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_004",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶台与水槽之间有操作台缓冲",
+    "detection_hint": "识别灶台和水槽中间有台面距离。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "水火之间有缓冲更利于操作安全和布局平衡。",
+    "recommendation": "保持中间台面整洁，不堆放易燃物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove_sink:buffer"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_005",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "door",
+    "condition": "厨房门正对灶台",
+    "detection_hint": "识别厨房门打开后直视灶台火口。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "灶口不宜被门直冲，实际也容易受风和动线干扰。",
+    "recommendation": "调整灶台位置，或在门与灶之间增加柜体、帘体缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:facing_stove"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_006",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "window",
+    "condition": "灶台紧贴强风窗下",
+    "detection_hint": "识别灶位在窗下且窗户常开或风口直吹。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "灶火受风影响，传统也认为灶位宜稳定。",
+    "recommendation": "避免灶口被风直吹，使用挡风或调整灶位。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:under_window"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_007",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "toilet",
+    "condition": "厨房门与卫生间门相对",
+    "detection_hint": "识别厨房门线与卫生间门线正对。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "厨房重洁净，卫生间湿浊不宜直冲。",
+    "recommendation": "保持卫生间门关闭，加强通风，门间用帘或绿植缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen_door:facing_toilet"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_008",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "厨房台面整洁干净",
+    "detection_hint": "识别台面少杂物、油污少、操作区清晰。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "厨房清洁是峦头和实际卫生的共同基础。",
+    "recommendation": "保持炉灶、水槽、备餐区分区清楚。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:clean_counter"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_009",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "厨房台面油污和杂物明显",
+    "detection_hint": "识别台面堆积锅具、垃圾、油污或杂物。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "厨房杂乱会影响火水秩序和食品安全。",
+    "recommendation": "清理台面，常用物上墙或入柜。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:cluttered_counter"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_010",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶口不正对冰箱",
+    "detection_hint": "识别灶台火口未直接朝向冰箱。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "冰箱属冷藏水气，避免与灶火正冲更协调。",
+    "recommendation": "保持冰箱与灶之间有距离或转角。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:not_facing_fridge"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_011",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶台正对冰箱",
+    "detection_hint": "识别灶口正对冰箱门且距离较近。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "水火冷热点对冲，使用上也不便。",
+    "recommendation": "调整冰箱位置，或中间设置操作台缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:facing_fridge"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_012",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "beam",
+    "condition": "横梁压灶",
+    "detection_hint": "识别灶台正上方有结构梁。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "灶上有梁会形成压迫，也不利于排烟设备布置。",
+    "recommendation": "调整灶位或通过吊顶弱化梁体。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "beam:above_stove"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_013",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶台上方排烟顺畅",
+    "detection_hint": "识别油烟机位置正确，灶上方无遮挡。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "厨房火气需有良好排烟，家居上重视洁净通风。",
+    "recommendation": "定期清洁油烟机，保持排风通畅。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:ventilated"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_014",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "window",
+    "condition": "厨房有窗或良好通风",
+    "detection_hint": "识别厨房窗户、排气扇或通风口可用。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "厨房水火并存，通风有助于湿热排出。",
+    "recommendation": "保持窗和排气扇清洁可用。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:ventilated"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_015",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "window",
+    "condition": "厨房通风不足且潮湿",
+    "detection_hint": "识别无窗、排气差、水槽周边潮湿发霉。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "潮湿会影响厨房卫生和气味。",
+    "recommendation": "增加排气扇、除湿和照明，及时处理漏水。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:humid_poor_vent"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_016",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "刀具收纳不外露",
+    "detection_hint": "识别刀具在刀架、抽屉或安全收纳中。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "尖锐物不外露能减少视觉冲煞和安全风险。",
+    "recommendation": "保持刀具固定收纳，避免随意放台面。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "knife:stored"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_017",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "刀具外露且靠近入口",
+    "detection_hint": "识别刀具裸露摆在台面或靠近门口。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "尖锐物外露不利安全，也属形煞。",
+    "recommendation": "将刀具收入刀架或抽屉。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "knife:exposed"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_018",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "垃圾桶远离灶台和备餐区",
+    "detection_hint": "识别垃圾桶未紧贴灶台、水槽备餐核心区域。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "厨房洁净为先，垃圾不宜压在火口附近。",
+    "recommendation": "使用带盖垃圾桶并及时清理。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "trash:away_from_stove"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_019",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "垃圾桶紧贴灶台",
+    "detection_hint": "识别垃圾桶靠近灶台或备餐台。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "垃圾靠近烹饪区影响卫生和观感。",
+    "recommendation": "移至角落或柜内带盖位置。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "trash:near_stove"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_020",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶台不在厨房中心孤立位",
+    "detection_hint": "识别灶台靠墙或靠岛台稳定，不孤立在动线中央。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "灶位宜稳定，中心孤立会增加动线风险。",
+    "recommendation": "保持灶台靠稳定台面和排烟系统。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:not_island_center"
+    ]
+  },
+  {
+    "id": "bazhai_kitchen_021",
+    "school": "八宅",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "厨房灶位可用在八宅派中需压制的凶方，但灶口不宜朝向凶方。",
+    "detection_hint": "读取用户填写或罗盘记录的灶台方位，判断是否为西方。",
+    "direction_required": "west",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "八宅派以生气、天医、延年、伏位作为较稳定的吉方参考，仍需结合峦头形势。",
+    "recommendation": "若与宅命或使用者命卦匹配，可优先作为门、床、桌等重要位置参考，同时保持形势整洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:west",
+      "stove:direction_check"
+    ]
+  },
+  {
+    "id": "bazhai_kitchen_022",
+    "school": "八宅",
+    "category": "kitchen",
+    "object": "stove",
+    "condition": "灶口朝向绝命、五鬼、六煞或祸害参考方，传统八宅派认为需调整。",
+    "detection_hint": "读取用户填写或罗盘记录的灶台方位，判断是否为西北方。",
+    "direction_required": "northwest",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "八宅派以绝命、五鬼、六煞、祸害作为需谨慎处理的方位参考，实际应用不可脱离户型和使用功能。",
+    "recommendation": "若重要门、床、桌落在该类方位，可先用整洁、遮挡、换位和功能弱化处理，后续再结合命卦精算。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:northwest",
+      "stove:direction_check"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_023",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "door",
+    "condition": "大门直见厨房或灶台",
+    "detection_hint": "识别入户门打开可直接看到厨房灶台。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "大门直见灶在传统中较忌，实际也缺少隐私和缓冲。",
+    "recommendation": "增加玄关柜、帘体或调整视线遮挡。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:facing_kitchen_stove"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_024",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "冰箱、洗切、烹饪形成顺手动线",
+    "detection_hint": "识别冰箱、水槽、灶台构成合理三角或顺序。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "厨房动线顺畅是现代家居与风水洁净原则的结合。",
+    "recommendation": "保持三者之间通道清楚，避免杂物阻断。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:work_triangle_good"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_025",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "厨房动线被杂物阻断",
+    "detection_hint": "识别冰箱、水槽、灶台之间堆放杂物。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "厨房动线受阻影响安全和效率。",
+    "recommendation": "清理过道，减少临时堆放。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:work_triangle_blocked"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_026",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "light",
+    "condition": "厨房照明充足",
+    "detection_hint": "识别灶台和水槽区域有足够照明。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "明亮厨房更利于清洁和安全。",
+    "recommendation": "在水槽和备餐区增加局部灯。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:bright"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_027",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "light",
+    "condition": "灶台区域昏暗",
+    "detection_hint": "识别灶台上方阴影明显、照明不足。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "火口昏暗不利操作和清洁。",
+    "recommendation": "增加灶台照明并清洁油烟机灯罩。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "stove:dark"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_028",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "厨房地面干燥防滑",
+    "detection_hint": "识别地面无明显积水。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "地面干燥有助于安全和卫生。",
+    "recommendation": "及时处理漏水和油污。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:dry_floor"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_029",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "厨房地面湿滑或漏水",
+    "detection_hint": "识别地面反光积水、水槽下方渗漏。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "水湿过重影响厨房洁净与安全。",
+    "recommendation": "检查水管，保持地面干燥。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:wet_floor"
+    ]
+  },
+  {
+    "id": "luantou_kitchen_030",
+    "school": "峦头",
+    "category": "kitchen",
+    "object": "layout",
+    "condition": "厨房门可关闭以隔绝油烟",
+    "detection_hint": "识别厨房有可关闭门或有效隔断。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "油烟与湿热宜有边界，避免扩散到卧室客厅。",
+    "recommendation": "烹饪时关闭门或使用强排风。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:closable_door"
+    ]
+  },
+  {
+    "id": "luantou_entrance_001",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "door",
+    "condition": "大门可完整开启且入口明亮",
+    "detection_hint": "识别大门开合无遮挡，玄关亮度足够。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "大门为主要气口，明亮开阔是基础。",
+    "recommendation": "保持门前门后清爽，玄关补充暖光。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:clear",
+      "roomIsBright"
+    ]
+  },
+  {
+    "id": "luantou_entrance_002",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "door",
+    "condition": "大门开启受鞋柜或杂物阻挡",
+    "detection_hint": "识别门扇无法完全打开或门后堆物。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "气口受阻会影响动线与第一印象。",
+    "recommendation": "清理门后杂物，调整鞋柜深度。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:blocked"
+    ]
+  },
+  {
+    "id": "luantou_entrance_003",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "mirror",
+    "condition": "玄关镜子正对大门",
+    "detection_hint": "识别镜面正对入户门。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "镜对大门常被视为反射入气，实际也容易造成视觉突兀。",
+    "recommendation": "将镜子移至侧墙，避免正对门。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "mirror:facing_door"
+    ]
+  },
+  {
+    "id": "luantou_entrance_004",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "mirror",
+    "condition": "玄关镜子在侧墙且不对门",
+    "detection_hint": "识别镜子位于入户侧墙。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "镜子可用于整理仪容，侧墙位置较稳妥。",
+    "recommendation": "保持镜面整洁，避免过大压迫入口。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "mirror:side_entrance"
+    ]
+  },
+  {
+    "id": "luantou_entrance_005",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "玄关形成缓冲区",
+    "detection_hint": "识别大门与客厅之间有柜体、屏风、地垫或转折。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "玄关可缓和外部气流，现代布局中也提供收纳过渡。",
+    "recommendation": "保持缓冲区通透，不做过高压迫。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:buffer"
+    ]
+  },
+  {
+    "id": "luantou_entrance_006",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "入户直冲客厅窗或阳台",
+    "detection_hint": "识别大门、客厅、窗/阳台成一直线。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "穿堂格局气流过急，入口缺少停留。",
+    "recommendation": "设置玄关柜、屏风、地毯或绿植减缓直线。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door_window:through"
+    ]
+  },
+  {
+    "id": "luantou_entrance_007",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "toilet",
+    "condition": "大门正对厕所门",
+    "detection_hint": "识别入户门与厕所门正对，或用户勾选门对厕所。",
+    "direction_required": "any",
+    "severity": "high",
+    "score_change": -18,
+    "principle": "卫生间湿气重，不宜成为入户第一视线。",
+    "recommendation": "保持厕所门关闭，增加门帘、屏风或绿植缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "doorFacingToilet"
+    ]
+  },
+  {
+    "id": "luantou_entrance_008",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "stairs",
+    "condition": "大门正对楼梯向下",
+    "detection_hint": "识别入户门外或门内正对下行楼梯。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "楼梯动势强，向下动线在传统上不宜直冲气口。",
+    "recommendation": "用地垫、屏风、绿植或照明形成缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:facing_downstairs"
+    ]
+  },
+  {
+    "id": "luantou_entrance_009",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "stairs",
+    "condition": "大门正对楼梯向上",
+    "detection_hint": "识别入户门正对上行楼梯。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "楼梯直冲入口会让动线急促。",
+    "recommendation": "保持入口明亮整洁，可用端景弱化直冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:facing_upstairs"
+    ]
+  },
+  {
+    "id": "luantou_entrance_010",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "corridor",
+    "condition": "大门正对长走廊",
+    "detection_hint": "识别门外或门内长直走廊直冲。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "长直走廊属直冲动线。",
+    "recommendation": "增加地毯、灯光、端景柜或植物缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:facing_long_corridor"
+    ]
+  },
+  {
+    "id": "luantou_entrance_011",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "玄关鞋物封闭收纳",
+    "detection_hint": "识别鞋柜封闭或整洁，鞋不外露堆积。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "玄关重洁净，鞋物收纳能减少杂乱。",
+    "recommendation": "保持鞋柜通风和定期清洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shoes:stored"
+    ]
+  },
+  {
+    "id": "luantou_entrance_012",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "玄关鞋物外露堆满地面",
+    "detection_hint": "识别大量鞋散落在入口地面。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "入口杂乱会阻挡气口和动线。",
+    "recommendation": "使用封闭鞋柜或分层收纳，保留落脚空间。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shoes:cluttered"
+    ]
+  },
+  {
+    "id": "luantou_entrance_013",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "light",
+    "condition": "玄关灯光柔和充足",
+    "detection_hint": "识别入口有顶灯、壁灯或感应灯且无暗角。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "明亮入口能改善第一感受和安全性。",
+    "recommendation": "使用暖光感应灯，避免昏暗。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:bright_light"
+    ]
+  },
+  {
+    "id": "luantou_entrance_014",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "light",
+    "condition": "玄关昏暗潮湿",
+    "detection_hint": "识别入口亮度低、墙面潮湿或杂物遮挡。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "入口昏暗会影响整体气口质量。",
+    "recommendation": "增加照明、通风和除湿，清理遮挡。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:dark_humid"
+    ]
+  },
+  {
+    "id": "luantou_entrance_015",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "plant",
+    "condition": "玄关植物健康且不挡门",
+    "detection_hint": "识别小型健康植物放侧边，不影响开门。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "植物可柔化入口，但不宜挡门。",
+    "recommendation": "选择圆叶耐阴植物，枯黄及时更换。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:entrance_healthy"
+    ]
+  },
+  {
+    "id": "luantou_entrance_016",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "plant",
+    "condition": "大型植物挡住大门开合",
+    "detection_hint": "识别植物占用门扇开启或主通道。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "植物挡门会影响气口和安全。",
+    "recommendation": "移到侧边或改小型植物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:blocking_door"
+    ]
+  },
+  {
+    "id": "bazhai_entrance_017",
+    "school": "八宅",
+    "category": "entrance",
+    "object": "door",
+    "condition": "大门位于生气、天医、延年或伏位参考方，八宅派视为较佳气口。",
+    "detection_hint": "读取用户填写或罗盘记录的门方位，判断是否为东南方。",
+    "direction_required": "southeast",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "八宅派以生气、天医、延年、伏位作为较稳定的吉方参考，仍需结合峦头形势。",
+    "recommendation": "若与宅命或使用者命卦匹配，可优先作为门、床、桌等重要位置参考，同时保持形势整洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:southeast",
+      "door:direction_check"
+    ]
+  },
+  {
+    "id": "bazhai_entrance_018",
+    "school": "八宅",
+    "category": "entrance",
+    "object": "door",
+    "condition": "大门位于绝命、五鬼、六煞或祸害参考方，八宅派建议加强玄关缓冲。",
+    "detection_hint": "读取用户填写或罗盘记录的门方位，判断是否为西南方。",
+    "direction_required": "southwest",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "八宅派以绝命、五鬼、六煞、祸害作为需谨慎处理的方位参考，实际应用不可脱离户型和使用功能。",
+    "recommendation": "若重要门、床、桌落在该类方位，可先用整洁、遮挡、换位和功能弱化处理，后续再结合命卦精算。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:southwest",
+      "door:direction_check"
+    ]
+  },
+  {
+    "id": "luantou_entrance_019",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "玄关地垫干净完整",
+    "detection_hint": "识别地垫无破损、无污水，位置适当。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "地垫可形成入户边界，保持清洁更重要。",
+    "recommendation": "定期清洗或更换地垫。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "mat:clean"
+    ]
+  },
+  {
+    "id": "luantou_entrance_020",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "玄关地垫破损脏污",
+    "detection_hint": "识别地垫破损、脏污或卷边。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "破损脏污会影响入口观感和安全。",
+    "recommendation": "更换平整干净的地垫。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "mat:dirty_broken"
+    ]
+  },
+  {
+    "id": "luantou_entrance_021",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "window",
+    "condition": "玄关处有自然采光或借光",
+    "detection_hint": "识别玄关有侧窗、玻璃或借光设计。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "入口有光能改善明堂感。",
+    "recommendation": "保持玻璃或借光面洁净。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:natural_light"
+    ]
+  },
+  {
+    "id": "luantou_entrance_022",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "玄关过窄且高柜压迫",
+    "detection_hint": "识别入口通道很窄，两侧高柜压迫。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "过窄入口会影响动线和心理舒适。",
+    "recommendation": "减少高柜厚度，使用浅色和灯光减压。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:narrow_tall_cabinet"
+    ]
+  },
+  {
+    "id": "luantou_entrance_023",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "door",
+    "condition": "门牌、门铃、门把手干净完好",
+    "detection_hint": "识别门外五金完好无破损。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "入口外观整洁是基础维护。",
+    "recommendation": "保持门把手、门铃、门牌清洁可用。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:hardware_good"
+    ]
+  },
+  {
+    "id": "luantou_entrance_024",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "door",
+    "condition": "大门破损或五金松动",
+    "detection_hint": "识别门体破损、把手松动、门铃损坏。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "气口破损会影响安全和第一印象。",
+    "recommendation": "及时维修门体、锁具和门铃。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "door:damaged"
+    ]
+  },
+  {
+    "id": "luantou_entrance_025",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "玄关收纳分区清楚",
+    "detection_hint": "识别钥匙、鞋、伞、包有固定位置。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "分区收纳减少入口混乱。",
+    "recommendation": "保留小托盘、挂钩和鞋柜分层。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:organized_storage"
+    ]
+  },
+  {
+    "id": "luantou_entrance_026",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "钥匙杂物堆满玄关台",
+    "detection_hint": "识别玄关台面堆满快递、钥匙、杂物。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "台面杂乱会影响入口清爽度。",
+    "recommendation": "设置小物托盘和快递临时区，定期清理。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:console_clutter"
+    ]
+  },
+  {
+    "id": "luantou_entrance_027",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "door",
+    "condition": "门内外无遮挡且视线不过度外泄",
+    "detection_hint": "识别入口既能顺畅进出，又有适度转折不直透全屋。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "既通畅又有缓冲是玄关理想状态。",
+    "recommendation": "保持入口开阔，同时用低柜或屏风保护隐私。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:clear_with_privacy"
+    ]
+  },
+  {
+    "id": "luantou_entrance_028",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "开门即见床",
+    "detection_hint": "识别入户门视线直接看到卧室床。",
+    "direction_required": "any",
+    "severity": "high",
+    "score_change": -18,
+    "principle": "入户直见床隐私很弱，也属门冲休息区。",
+    "recommendation": "调整卧室门、床位或增加帘体遮挡。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:see_bed"
+    ]
+  },
+  {
+    "id": "luantou_entrance_029",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "开门即见灶",
+    "detection_hint": "识别入户门视线直接看到厨房灶台。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "传统上入门见灶需谨慎，现代上也缺少过渡。",
+    "recommendation": "设置玄关遮挡或调整厨房门帘。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:see_stove"
+    ]
+  },
+  {
+    "id": "luantou_entrance_030",
+    "school": "峦头",
+    "category": "entrance",
+    "object": "layout",
+    "condition": "开门即见整洁端景",
+    "detection_hint": "识别入户前方为画、柜、绿植或整洁墙面端景。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "端景可形成停留和缓冲。",
+    "recommendation": "保持端景简洁，不堆放杂物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "entrance:pleasant_view"
+    ]
+  },
+  {
+    "id": "luantou_office_001",
+    "school": "峦头",
+    "category": "office",
+    "object": "desk",
+    "condition": "办公桌背后有实墙",
+    "detection_hint": "识别座位背后为墙或稳定柜体。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "坐有靠是办公位常用原则，实际也有稳定感。",
+    "recommendation": "保持背后稳定，避免背后为走道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:back_against_wall"
+    ]
+  },
+  {
+    "id": "luantou_office_002",
+    "school": "峦头",
+    "category": "office",
+    "object": "desk",
+    "condition": "办公桌背后为门或走道",
+    "detection_hint": "识别座位背后是门、走道或开放空间。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "背后动线会分散注意力，也缺少靠山感。",
+    "recommendation": "调整座位靠墙，或在背后放矮柜。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:back_to_door"
+    ]
+  },
+  {
+    "id": "luantou_office_003",
+    "school": "峦头",
+    "category": "office",
+    "object": "door",
+    "condition": "办公桌正对门且距离近",
+    "detection_hint": "识别座位或桌面正对门口直线。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "门冲座位会造成打扰和隐私不足。",
+    "recommendation": "调整桌位斜避门线，或用植物/屏风缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:facing_door_close"
+    ]
+  },
+  {
+    "id": "luantou_office_004",
+    "school": "峦头",
+    "category": "office",
+    "object": "door",
+    "condition": "办公桌能侧看门但不被门冲",
+    "detection_hint": "识别座位可看到入口，且不在门直线冲射上。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "能见门且不被冲，兼顾安全感和专注。",
+    "recommendation": "保持桌位侧向入口，前方留白。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:command_position"
+    ]
+  },
+  {
+    "id": "luantou_office_005",
+    "school": "峦头",
+    "category": "office",
+    "object": "window",
+    "condition": "办公桌背窗而坐",
+    "detection_hint": "识别座位背后为窗，非墙。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "背窗容易受光影和动线影响，传统上也视为无靠。",
+    "recommendation": "调整为背墙面窗，或用厚窗帘和高背椅补强。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:back_to_window"
+    ]
+  },
+  {
+    "id": "luantou_office_006",
+    "school": "峦头",
+    "category": "office",
+    "object": "window",
+    "condition": "办公桌前方有柔和自然光",
+    "detection_hint": "识别桌面有侧向自然光，不强烈反光。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "柔和采光有利于阅读和工作舒适度。",
+    "recommendation": "保持侧光，避免屏幕反光。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:soft_natural_light"
+    ]
+  },
+  {
+    "id": "luantou_office_007",
+    "school": "峦头",
+    "category": "office",
+    "object": "window",
+    "condition": "屏幕强反光或窗光直射眼睛",
+    "detection_hint": "识别屏幕反光明显或座位面对强窗。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "强反光会影响专注和视觉舒适。",
+    "recommendation": "调整屏幕角度，使用窗帘或换桌位。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:screen_glare"
+    ]
+  },
+  {
+    "id": "luantou_office_008",
+    "school": "峦头",
+    "category": "office",
+    "object": "beam",
+    "condition": "横梁压办公桌",
+    "detection_hint": "识别办公桌或座位正上方有梁。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "长期工作位上方有梁会产生压迫。",
+    "recommendation": "移动座位或用吊顶灯槽弱化梁体。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "beam:above_desk"
+    ]
+  },
+  {
+    "id": "luantou_office_009",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "桌面整洁，常用物分区",
+    "detection_hint": "识别桌面文件、电脑、文具分区清晰。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "整洁桌面有助于专注，传统上也利于文昌气。",
+    "recommendation": "保持每日收纳，文件分类。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:organized"
+    ]
+  },
+  {
+    "id": "luantou_office_010",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "桌面杂乱堆满文件",
+    "detection_hint": "识别桌面堆满杂物和线缆。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "杂乱会影响工作效率和视觉秩序。",
+    "recommendation": "建立文件托盘和线缆管理。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:cluttered"
+    ]
+  },
+  {
+    "id": "luantou_office_011",
+    "school": "峦头",
+    "category": "office",
+    "object": "plant",
+    "condition": "书桌旁有小型健康植物",
+    "detection_hint": "识别桌旁有小型绿植且不遮挡视线。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "木气点缀可柔化工作区。",
+    "recommendation": "选择小型圆叶植物，保持健康。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:desk_small"
+    ]
+  },
+  {
+    "id": "luantou_office_012",
+    "school": "峦头",
+    "category": "office",
+    "object": "plant",
+    "condition": "植物遮挡桌面或枯萎",
+    "detection_hint": "识别植物过大遮挡屏幕/文件，或枯黄。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "过大或枯萎植物会形成阻碍。",
+    "recommendation": "修剪或更换植物，避免挡住工作面。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:desk_blocking_or_withered"
+    ]
+  },
+  {
+    "id": "luantou_office_013",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "书房门不直冲座位",
+    "detection_hint": "识别座位不在门直线。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "避开门冲有助于安静专注。",
+    "recommendation": "保持座位与门之间有转折。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "office:not_door_chong"
+    ]
+  },
+  {
+    "id": "luantou_office_014",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "座位后方为空调或风口直吹",
+    "detection_hint": "识别空调风口对着头背部。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "风口直吹会造成气流不稳和不适。",
+    "recommendation": "调整风向或移动座位。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "airflow:direct_to_desk"
+    ]
+  },
+  {
+    "id": "luantou_office_015",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "书柜稳固并靠墙",
+    "detection_hint": "识别书柜靠墙且未倾斜，远离座位上方压迫。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "高柜靠墙更安全，也形成稳定文气。",
+    "recommendation": "固定书柜，重物放低层。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bookcase:stable"
+    ]
+  },
+  {
+    "id": "luantou_office_016",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "高书柜压迫座位侧后方",
+    "detection_hint": "识别高柜离座位很近形成压迫。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "高柜过近会影响舒适度。",
+    "recommendation": "拉开距离或降低柜体视觉重量。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bookcase:pressing_desk"
+    ]
+  },
+  {
+    "id": "luantou_office_017",
+    "school": "峦头",
+    "category": "office",
+    "object": "light",
+    "condition": "桌面有独立台灯",
+    "detection_hint": "识别桌面有工作灯，照明充足。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "文昌位重明亮，现代工作也需要局部照明。",
+    "recommendation": "使用柔和不眩光台灯。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:task_light"
+    ]
+  },
+  {
+    "id": "luantou_office_018",
+    "school": "峦头",
+    "category": "office",
+    "object": "light",
+    "condition": "书桌光线不足",
+    "detection_hint": "识别桌面亮度低、阴影重。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "光线不足影响阅读和专注。",
+    "recommendation": "增加台灯或顶灯补光。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:dark"
+    ]
+  },
+  {
+    "id": "luantou_office_019",
+    "school": "峦头",
+    "category": "office",
+    "object": "desk",
+    "condition": "办公桌前方留有明堂",
+    "detection_hint": "识别桌前不是紧贴墙或高柜，留有一定空间。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "前方开阔象征明堂，也减少压迫感。",
+    "recommendation": "保留桌前空间，必要时用低矮装饰。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:front_open"
+    ]
+  },
+  {
+    "id": "luantou_office_020",
+    "school": "峦头",
+    "category": "office",
+    "object": "desk",
+    "condition": "桌前高柜或墙面过近",
+    "detection_hint": "识别办公桌正前方距离很近的墙或高柜。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "前方压迫会影响视线和思考空间。",
+    "recommendation": "调整桌向或用浅色墙面、灯光减压。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:front_pressed"
+    ]
+  },
+  {
+    "id": "bazhai_office_021",
+    "school": "八宅",
+    "category": "office",
+    "object": "desk",
+    "condition": "办公桌朝向生气或文昌参考方，适合作为学习和工作位参考。",
+    "detection_hint": "读取用户填写或罗盘记录的书桌/办公桌方位，判断是否为东方。",
+    "direction_required": "east",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "八宅派以生气、天医、延年、伏位作为较稳定的吉方参考，仍需结合峦头形势。",
+    "recommendation": "若与宅命或使用者命卦匹配，可优先作为门、床、桌等重要位置参考，同时保持形势整洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:east",
+      "desk:direction_check"
+    ]
+  },
+  {
+    "id": "bazhai_office_022",
+    "school": "八宅",
+    "category": "office",
+    "object": "desk",
+    "condition": "办公桌朝向五鬼或六煞参考方，传统八宅派建议避开长期办公。",
+    "detection_hint": "读取用户填写或罗盘记录的书桌/办公桌方位，判断是否为西方。",
+    "direction_required": "west",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "八宅派以绝命、五鬼、六煞、祸害作为需谨慎处理的方位参考，实际应用不可脱离户型和使用功能。",
+    "recommendation": "若重要门、床、桌落在该类方位，可先用整洁、遮挡、换位和功能弱化处理，后续再结合命卦精算。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:west",
+      "desk:direction_check"
+    ]
+  },
+  {
+    "id": "luantou_office_023",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "办公桌紧贴床边且杂乱",
+    "detection_hint": "识别办公物品堆到床边，睡眠工作混杂。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "功能混杂会影响休息和专注。",
+    "recommendation": "用收纳柜分区，减少床边办公杂物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "office:mixed_with_bed_clutter"
+    ]
+  },
+  {
+    "id": "luantou_office_024",
+    "school": "峦头",
+    "category": "office",
+    "object": "door",
+    "condition": "会议桌或多人座位不被门直冲",
+    "detection_hint": "识别主要座位避开门线。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "多人沟通区动线宜平稳。",
+    "recommendation": "让主位侧看入口，不背门。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "meeting:not_door_chong"
+    ]
+  },
+  {
+    "id": "luantou_office_025",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "办公桌处于过道交叉口",
+    "detection_hint": "识别座位位于两条通道交汇或频繁经过处。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "交叉动线会打扰专注。",
+    "recommendation": "移动座位到边侧稳定区域。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:at_corridor_cross"
+    ]
+  },
+  {
+    "id": "luantou_office_026",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "办公桌左侧有文件或植物形成辅助",
+    "detection_hint": "识别桌左侧有适度收纳或植物，不压迫。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "传统常讲左右有辅，现代上也利于收纳。",
+    "recommendation": "保持左侧物品有序，避免堆高。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:left_support"
+    ]
+  },
+  {
+    "id": "luantou_office_027",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "桌面电线缠绕外露",
+    "detection_hint": "识别线缆杂乱横跨桌面或地面。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "线缆杂乱影响动线和安全。",
+    "recommendation": "使用理线槽和固定夹。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "cable:messy"
+    ]
+  },
+  {
+    "id": "luantou_office_028",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "办公室入口到座位动线清晰",
+    "detection_hint": "识别门到座位路径无遮挡。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "清晰动线有助于沟通和使用。",
+    "recommendation": "保持通道不少于舒适宽度。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "office:path_clear"
+    ]
+  },
+  {
+    "id": "luantou_office_029",
+    "school": "峦头",
+    "category": "office",
+    "object": "layout",
+    "condition": "门口堆文件箱阻挡办公动线",
+    "detection_hint": "识别办公室门口或通道堆放文件箱。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "入口和通道堵塞会影响气口与安全。",
+    "recommendation": "清理文件箱，转移到储物区。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "office:path_blocked"
+    ]
+  },
+  {
+    "id": "luantou_office_030",
+    "school": "峦头",
+    "category": "office",
+    "object": "desk",
+    "condition": "书桌朝向已记录，可结合八宅继续判断",
+    "detection_hint": "用户填写办公桌朝向或AI识别桌面朝向。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "明确朝向是八宅和后续命卦分析的基础。",
+    "recommendation": "保存桌向数据，后续加入命卦匹配。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "desk:facing_known"
+    ]
+  },
+  {
+    "id": "luantou_shop_001",
+    "school": "峦头",
+    "category": "shop",
+    "object": "door",
+    "condition": "店铺门口开阔明亮",
+    "detection_hint": "识别门口无遮挡、招牌可见、照明充足。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "商业空间入口重视纳客动线，明亮开阔更易被看见。",
+    "recommendation": "保持门口清爽，避免货物堵门。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:entrance_open_bright"
+    ]
+  },
+  {
+    "id": "luantou_shop_002",
+    "school": "峦头",
+    "category": "shop",
+    "object": "door",
+    "condition": "店铺门口被货物或广告架堵塞",
+    "detection_hint": "识别入口被箱子、货架、广告牌压缩。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "入口受阻会影响客流进入和安全。",
+    "recommendation": "减少门口堆放，广告架放侧边。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:entrance_blocked"
+    ]
+  },
+  {
+    "id": "luantou_shop_003",
+    "school": "峦头",
+    "category": "shop",
+    "object": "cashier",
+    "condition": "收银台背后有墙或柜体",
+    "detection_hint": "识别收银位背后为墙、柜或稳定背景。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "收银位宜稳，背后有靠也利于管理。",
+    "recommendation": "保持收银背后整洁，不背门不背窗。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "cashier:back_against_wall"
+    ]
+  },
+  {
+    "id": "luantou_shop_004",
+    "school": "峦头",
+    "category": "shop",
+    "object": "cashier",
+    "condition": "收银台背后为空或为通道",
+    "detection_hint": "识别收银员背后是走道、玻璃门或开放区域。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "背后无靠会影响稳定和安全感。",
+    "recommendation": "调整收银位靠墙，或加矮柜作为靠。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "cashier:no_backing"
+    ]
+  },
+  {
+    "id": "luantou_shop_005",
+    "school": "峦头",
+    "category": "shop",
+    "object": "cashier",
+    "condition": "收银台正对大门过近",
+    "detection_hint": "识别收银台与门正冲且距离短。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "正对门过近容易受动线冲扰。",
+    "recommendation": "让收银台侧向入口，保留迎客视线但避开直冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "cashier:facing_door_close"
+    ]
+  },
+  {
+    "id": "luantou_shop_006",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "主通道顺畅形成回游",
+    "detection_hint": "识别顾客动线从入口到陈列再到收银清晰。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "商业空间重视动线，顺畅回游利于浏览体验。",
+    "recommendation": "保持主通道宽度，陈列不过度外溢。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:circulation_good"
+    ]
+  },
+  {
+    "id": "luantou_shop_007",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "货架挤压主通道",
+    "detection_hint": "识别通道狭窄、顾客需侧身通过。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "通道压迫影响停留和安全。",
+    "recommendation": "减少货架密度，保留主通道。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:aisle_crowded"
+    ]
+  },
+  {
+    "id": "luantou_shop_008",
+    "school": "峦头",
+    "category": "shop",
+    "object": "light",
+    "condition": "店铺重点陈列有照明",
+    "detection_hint": "识别橱窗、主推货架或收银区有重点灯。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "明亮焦点能形成视觉明堂。",
+    "recommendation": "用暖光或显色性好的灯突出主陈列。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:display_lit"
+    ]
+  },
+  {
+    "id": "luantou_shop_009",
+    "school": "峦头",
+    "category": "shop",
+    "object": "light",
+    "condition": "店内暗角堆货",
+    "detection_hint": "识别角落昏暗且堆放库存。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "暗角堆货会降低空间清爽度。",
+    "recommendation": "增加照明，把库存移入仓储区。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:dark_stock_corner"
+    ]
+  },
+  {
+    "id": "luantou_shop_010",
+    "school": "峦头",
+    "category": "shop",
+    "object": "window",
+    "condition": "橱窗干净无遮挡",
+    "detection_hint": "识别橱窗玻璃干净，展示清晰。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "橱窗是商业外明堂，清晰可见更利于展示。",
+    "recommendation": "定期清洁玻璃，保持展示不过满。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:window_clear"
+    ]
+  },
+  {
+    "id": "bazhai_shop_011",
+    "school": "八宅",
+    "category": "shop",
+    "object": "door",
+    "condition": "店铺入口位于生气或延年参考方，可作为商业入口参考。",
+    "detection_hint": "读取用户填写或罗盘记录的门方位，判断是否为东南方。",
+    "direction_required": "southeast",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "八宅派以生气、天医、延年、伏位作为较稳定的吉方参考，仍需结合峦头形势。",
+    "recommendation": "若与宅命或使用者命卦匹配，可优先作为门、床、桌等重要位置参考，同时保持形势整洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:southeast",
+      "door:direction_check"
+    ]
+  },
+  {
+    "id": "bazhai_shop_012",
+    "school": "八宅",
+    "category": "shop",
+    "object": "cashier",
+    "condition": "收银台位于伏位或天医参考方，传统上强调稳定守位。",
+    "detection_hint": "读取用户填写或罗盘记录的收银台方位，判断是否为西北方。",
+    "direction_required": "northwest",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "八宅派以生气、天医、延年、伏位作为较稳定的吉方参考，仍需结合峦头形势。",
+    "recommendation": "若与宅命或使用者命卦匹配，可优先作为门、床、桌等重要位置参考，同时保持形势整洁。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:northwest",
+      "cashier:direction_check"
+    ]
+  },
+  {
+    "id": "luantou_shop_013",
+    "school": "峦头",
+    "category": "shop",
+    "object": "plant",
+    "condition": "枯萎植物放在门口或收银旁",
+    "detection_hint": "识别枯黄植物位于入口或收银区。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "枯萎植物影响第一印象。",
+    "recommendation": "及时更换或移除。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:withered_plant_key_area"
+    ]
+  },
+  {
+    "id": "luantou_shop_014",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "门口到收银台视线有秩序",
+    "detection_hint": "识别顾客进门可辨识收银区但不被直冲。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "收银位置清楚但不压门，有利于服务体验。",
+    "recommendation": "保持收银标识清晰，避免正堵入口。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:cashier_visible_not_blocking"
+    ]
+  },
+  {
+    "id": "luantou_shop_015",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "店内尖角货架直冲收银位",
+    "detection_hint": "识别货架尖角指向收银员位置。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "尖角直冲会造成压迫和安全隐患。",
+    "recommendation": "调整货架角度或用圆角护角处理。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:sharp_shelf_to_cashier"
+    ]
+  },
+  {
+    "id": "luantou_shop_016",
+    "school": "峦头",
+    "category": "shop",
+    "object": "door",
+    "condition": "店门与后门直通形成穿堂",
+    "detection_hint": "识别前门和后门/后窗直线贯通。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "商业空间也需避免气流过快直泄。",
+    "recommendation": "用陈列岛、屏风或动线转折缓冲。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:front_back_through"
+    ]
+  },
+  {
+    "id": "luantou_shop_017",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "收银区整洁无私人杂物外露",
+    "detection_hint": "识别收银台台面清爽，票据和私人物品收纳。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "收银区整洁有助于信任感。",
+    "recommendation": "设置抽屉和小物盒。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:cashier_clean"
+    ]
+  },
+  {
+    "id": "luantou_shop_018",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "收银台杂乱堆满票据私物",
+    "detection_hint": "识别台面杂物明显。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "收银杂乱影响专业感。",
+    "recommendation": "整理票据和私人物品。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:cashier_cluttered"
+    ]
+  },
+  {
+    "id": "luantou_shop_019",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "商品陈列高低有序",
+    "detection_hint": "识别陈列有层次，入口不过高压迫。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "层次有序能提升浏览舒适度。",
+    "recommendation": "入口区域低矮通透，重点商品用灯光突出。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:display_ordered"
+    ]
+  },
+  {
+    "id": "luantou_shop_020",
+    "school": "峦头",
+    "category": "shop",
+    "object": "layout",
+    "condition": "入口高货架形成压迫",
+    "detection_hint": "识别入门两侧或正前方高货架离门很近。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "入口压迫会降低进入意愿和气口开阔。",
+    "recommendation": "入口保留缓冲区，高货架后移。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "shop:high_shelf_press_entrance"
+    ]
+  },
+  {
+    "id": "wuxing_general_001",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "东方属木，适合保持生发、整洁与适度绿意",
+    "detection_hint": "识别东方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "east",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "五行基础中东方对应木，木重生发、条达。",
+    "recommendation": "东方可用健康植物、木质家具或绿色点缀，但不宜杂乱。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:east"
+    ]
+  },
+  {
+    "id": "wuxing_general_002",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "东方堆放金属杂物或尖锐物过多",
+    "detection_hint": "识别东方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "east",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "金克木，过多金属尖锐物会削弱东方木气表达。",
+    "recommendation": "减少尖锐金属杂物，改用木质、织物或植物柔化。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "east:too_much_metal"
+    ]
+  },
+  {
+    "id": "wuxing_general_003",
+    "school": "五行",
+    "category": "general",
+    "object": "light",
+    "condition": "南方属火，适合明亮但不过热",
+    "detection_hint": "识别南方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "south",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "南方对应火，火主光明，宜明亮有序。",
+    "recommendation": "南方可加强照明或暖色点缀，避免强光直射休息位。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:south"
+    ]
+  },
+  {
+    "id": "wuxing_general_004",
+    "school": "五行",
+    "category": "general",
+    "object": "aquarium",
+    "condition": "南方放大型水景",
+    "detection_hint": "识别南方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "south",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "水克火，大型水景放南方需谨慎。",
+    "recommendation": "若南方已有水景，保持小尺度和清洁，或移至更适合的公共区域。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "south:large_water"
+    ]
+  },
+  {
+    "id": "wuxing_general_005",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "西方属金，适合简洁、白金色和圆形器物",
+    "detection_hint": "识别西方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "west",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "西方对应金，金重清肃、秩序。",
+    "recommendation": "西方可用白色、金属小件或圆形摆件，避免杂乱堆积。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:west"
+    ]
+  },
+  {
+    "id": "wuxing_general_006",
+    "school": "五行",
+    "category": "general",
+    "object": "light",
+    "condition": "西方火色与强光过多",
+    "detection_hint": "识别西方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "west",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "火克金，西方大面积红色强光可适度收敛。",
+    "recommendation": "减少强红和强光，使用白、米、金属色平衡。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "west:too_much_fire"
+    ]
+  },
+  {
+    "id": "wuxing_general_007",
+    "school": "五行",
+    "category": "general",
+    "object": "aquarium",
+    "condition": "北方属水，适合保持清洁通风",
+    "detection_hint": "识别北方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "north",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "北方对应水，水重流动与清洁。",
+    "recommendation": "北方宜干净通风，可用深色或水元素小件，但不宜潮湿。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "direction:north"
+    ]
+  },
+  {
+    "id": "wuxing_general_008",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "北方潮湿杂乱",
+    "detection_hint": "识别北方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "north",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "水过旺则潮湿阴冷，家居上不利清洁。",
+    "recommendation": "加强除湿和照明，避免堆放杂物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "north:damp_clutter"
+    ]
+  },
+  {
+    "id": "wuxing_general_009",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "中央属土，宜稳定开阔",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "五行中中央属土，重稳定承载。",
+    "recommendation": "住宅中心尽量保持开阔整洁，不堆重物垃圾。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "center:open"
+    ]
+  },
+  {
+    "id": "wuxing_general_010",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "住宅中心堆满重物或垃圾",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "中心受压会影响整体动线和空间感。",
+    "recommendation": "清理中心区域，重柜沿墙布置。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "center:blocked"
+    ]
+  },
+  {
+    "id": "wuxing_general_011",
+    "school": "五行",
+    "category": "general",
+    "object": "plant",
+    "condition": "木生火，东方或东南植物配合南方照明形成柔和过渡",
+    "detection_hint": "识别东南方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "southeast",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "五行相生中木生火，植物和照明可形成生发到明亮的过渡。",
+    "recommendation": "东南可放健康植物，南侧用暖光承接，但避免过度。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "southeast:plant_good"
+    ]
+  },
+  {
+    "id": "wuxing_general_012",
+    "school": "五行",
+    "category": "general",
+    "object": "plant",
+    "condition": "植物枯萎或带刺植物靠近休息座位",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "木气宜生不宜枯，尖刺形态也易形成形煞。",
+    "recommendation": "更换枯萎植物，带刺植物远离床、沙发和办公位。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "plant:withered_or_thorny_near_seat"
+    ]
+  },
+  {
+    "id": "wuxing_general_013",
+    "school": "五行",
+    "category": "general",
+    "object": "aquarium",
+    "condition": "水景保持清洁且不在卧室",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "水景重流动，宜洁净并放在公共区域。",
+    "recommendation": "鱼缸或流水摆件定期清洁，避免放在卧室和座位背后。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "aquarium:clean_public"
+    ]
+  },
+  {
+    "id": "wuxing_general_014",
+    "school": "五行",
+    "category": "general",
+    "object": "aquarium",
+    "condition": "水景浑浊或设备噪音明显",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "水景不洁会影响观感和空气品质。",
+    "recommendation": "清洁水体，降低噪音；无法维护时建议移除。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "aquarium:dirty_noisy"
+    ]
+  },
+  {
+    "id": "wuxing_general_015",
+    "school": "五行",
+    "category": "general",
+    "object": "light",
+    "condition": "暗角用暖光补足",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "光属火，可改善阴暗角落的沉滞感。",
+    "recommendation": "在玄关、客厅角落或走廊使用暖光补光。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "light:fix_dark_corner"
+    ]
+  },
+  {
+    "id": "wuxing_general_016",
+    "school": "五行",
+    "category": "general",
+    "object": "light",
+    "condition": "灯具损坏或频闪",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "灯光不稳定会影响空间感和使用舒适。",
+    "recommendation": "更换频闪灯具，保持照明稳定。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "light:flicker_broken"
+    ]
+  },
+  {
+    "id": "wuxing_general_017",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "木质材质用于书房和东侧区域",
+    "detection_hint": "识别东方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "east",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "木与学习、生发意象相合，适合书房和东方。",
+    "recommendation": "书房可用木质桌柜，保持桌面清爽。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "east:wood_material"
+    ]
+  },
+  {
+    "id": "wuxing_general_018",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "厨房大量木材紧贴灶火",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "木生火但过近有安全风险，厨房应先重安全。",
+    "recommendation": "木质用品远离灶火，易燃物入柜。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "kitchen:wood_too_close_fire"
+    ]
+  },
+  {
+    "id": "wuxing_general_019",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "土色和陶瓷用于厨房或中央稳定区",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "土可承载水火，陶瓷、土色适合做稳定点缀。",
+    "recommendation": "厨房可用陶瓷器皿，中心区保持低矮稳定。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "earth_material:balanced"
+    ]
+  },
+  {
+    "id": "wuxing_general_020",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "黄色土色过度导致空间沉闷",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "土过重会显得压抑，需用光和木调和。",
+    "recommendation": "增加照明、绿植或浅色织物。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "earth_color:too_heavy"
+    ]
+  },
+  {
+    "id": "wuxing_general_021",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "金属材质用于收纳和西北侧秩序区",
+    "detection_hint": "识别西北方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "northwest",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "西北属金，金重秩序和清洁。",
+    "recommendation": "西北可设置整洁收纳或金属小件，避免尖锐压迫。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "northwest:metal_ordered"
+    ]
+  },
+  {
+    "id": "wuxing_general_022",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "金属尖锐物直冲床沙发",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "金属尖锐形态容易形成形煞。",
+    "recommendation": "调整角度或收纳尖锐物，使用圆角处理。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "metal_sharp:facing_rest"
+    ]
+  },
+  {
+    "id": "wuxing_general_023",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "红色用于南方少量点缀",
+    "detection_hint": "识别南方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "south",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "南方属火，少量红色可呼应方位属性。",
+    "recommendation": "南方可用小面积红、橙、暖光点缀。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "south:red_accent"
+    ]
+  },
+  {
+    "id": "wuxing_general_024",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "卧室大面积红色",
+    "detection_hint": "识别任意方位的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "any",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "火色过强不适合休息空间。",
+    "recommendation": "卧室红色宜小面积使用，主色改柔和中性色。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bedroom:too_much_red"
+    ]
+  },
+  {
+    "id": "wuxing_general_025",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "蓝黑色用于北方小面积点缀",
+    "detection_hint": "识别北方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "north",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "北方属水，蓝黑色可作方位提示。",
+    "recommendation": "北方可用深蓝、黑色小件，注意照明和干燥。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "north:blue_black_accent"
+    ]
+  },
+  {
+    "id": "wuxing_general_026",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "北方大面积黑色且采光差",
+    "detection_hint": "识别北方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "north",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "水色过重叠加昏暗会显压抑。",
+    "recommendation": "增加暖光和浅色材质，减少黑色面积。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "north:too_dark_black"
+    ]
+  },
+  {
+    "id": "wuxing_general_027",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "东南方保持整洁明亮",
+    "detection_hint": "识别东南方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "southeast",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "东南属木，常被作为生发和流动方位参考。",
+    "recommendation": "东南宜整洁、通风，可放健康绿植。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "southeast:clear_bright"
+    ]
+  },
+  {
+    "id": "wuxing_general_028",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "东南方堆放垃圾或破损物",
+    "detection_hint": "识别东南方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "southeast",
+    "severity": "medium",
+    "score_change": -10,
+    "principle": "东南宜清爽，杂物会破坏生发感。",
+    "recommendation": "清理破损物，保持通风和绿植健康。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "southeast:trash_broken"
+    ]
+  },
+  {
+    "id": "wuxing_general_029",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "西南方布置稳定低矮家具",
+    "detection_hint": "识别西南方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "southwest",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "西南属土，宜稳定、低矮、温和。",
+    "recommendation": "西南可放低柜、织物或陶瓷小件。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "southwest:stable_low"
+    ]
+  },
+  {
+    "id": "wuxing_general_030",
+    "school": "五行",
+    "category": "general",
+    "object": "layout",
+    "condition": "东北方杂乱或潮湿",
+    "detection_hint": "识别东北方的颜色、材质、植物、水景、灯光或主要家具布置。",
+    "direction_required": "northeast",
+    "severity": "low",
+    "score_change": -4,
+    "principle": "东北属土，宜整洁稳定，潮湿杂乱会显滞重。",
+    "recommendation": "清理东北角，加强干燥和照明。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "northeast:clutter_damp"
+    ]
+  },
+  {
+    "id": "luantou_bedroom_050",
+    "school": "峦头",
+    "category": "bedroom",
+    "object": "layout",
+    "condition": "卧室睡眠区远离门口换鞋、杂物和频繁走动区域。",
+    "detection_hint": "AI识别床位与卧室门口、杂物堆、换衣区或主要动线的距离，用户也可标记床是否靠近门口杂物。",
+    "direction_required": "any",
+    "severity": "positive",
+    "score_change": 8,
+    "principle": "峦头派强调睡眠区宜静，现代家居布局也建议把休息区从高频动线中分离。",
+    "recommendation": "保持床边安静整洁，门口杂物和换衣物品集中收纳，不让动线贴近床边。",
+    "disclaimer": "仅供传统文化与家居布局参考",
+    "triggers": [
+      "bed:away_from_busy_path"
+    ]
+  }
+]

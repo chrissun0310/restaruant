@@ -1,0 +1,19 @@
+{
+  "name": "孙大师风水",
+  "short_name": "孙大师",
+  "description": "孙大师风水 AI 布局系统",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080303",
+  "theme_color": "#1f0808",
+  "icons": [
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
