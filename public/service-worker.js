@@ -1,5 +1,5 @@
-const CACHE_NAME = "sun-master-fengshui-v1";
-const APP_SHELL = ["/", "/manifest.webmanifest", "/pwa-icon.svg"];
+const CACHE_NAME = "sun-master-fengshui-v3";
+const APP_SHELL = ["/", "/fengshui", "/ziwei", "/palm", "/face", "/manifest.webmanifest", "/pwa-icon.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
@@ -18,12 +18,8 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        const copy = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-        return response;
-      })
-      .catch(() => caches.match(event.request).then((cached) => cached || caches.match("/")))
+    caches.match(event.request).then((cached) =>
+      cached || fetch(event.request).catch(() => caches.match("/"))
+    )
   );
 });
